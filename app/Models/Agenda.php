@@ -19,7 +19,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Agenda extends Model
 {
-    use SoftDelets;
+    use SoftDeletes;
     
     static $rules = [
 		'Odontologoid' => 'required',
