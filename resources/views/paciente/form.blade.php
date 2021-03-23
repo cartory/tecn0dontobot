@@ -8,8 +8,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('nombre') }}
-            {{ Form::text('nombre', ${{ Form::select('genero', array('M' => 'Masculino', 'F' => 'Femenino'), $odontologo->genero, ['class' => 'form-control' . ($errors->has('genero') ? ' is-invalid' : ''), 'placeholder' => 'Genero']) }}
-            ->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
+            {{ Form::text('nombre', $paciente->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
