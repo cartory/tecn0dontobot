@@ -3,7 +3,7 @@
         
         <div class="form-group">
             {{ Form::label('ci') }}
-            {{ Form::text('ci', $odontologo->ci, ['class' => 'form-control' . ($errors->has('ci') ? ' is-invalid' : ''), 'placeholder' => 'Ci']) }}
+            {{ Form::number('ci', $odontologo->ci, ['class' => 'form-control' . ($errors->has('ci') ? ' is-invalid' : ''), 'placeholder' => 'Ci']) }}
             {!! $errors->first('ci', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
@@ -13,17 +13,17 @@
         </div>
         <div class="form-group">
             {{ Form::label('fNac') }}
-            {{ Form::text('fNac', $odontologo->fNac, ['class' => 'form-control' . ($errors->has('fNac') ? ' is-invalid' : ''), 'placeholder' => 'Fnac']) }}
+            {{ Form::date('fNac', $odontologo->fNac, ['class' => 'form-control' . ($errors->has('fNac') ? ' is-invalid' : ''), 'placeholder' => 'Fnac']) }}
             {!! $errors->first('fNac', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('celular') }}
-            {{ Form::text('celular', $odontologo->celular, ['class' => 'form-control' . ($errors->has('celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular']) }}
+            {{ Form::number('celular', $odontologo->celular, ['class' => 'form-control' . ($errors->has('celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular']) }}
             {!! $errors->first('celular', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('genero') }}
-            {{ Form::text('genero', $odontologo->genero, ['class' => 'form-control' . ($errors->has('genero') ? ' is-invalid' : ''), 'placeholder' => 'Genero']) }}
+            {{ Form::select('genero', array('M' => 'Masculino', 'F' => 'Femenino'), $odontologo->genero, ['class' => 'form-control' . ($errors->has('genero') ? ' is-invalid' : ''), 'placeholder' => 'Genero']) }}
             {!! $errors->first('genero', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
