@@ -6,7 +6,7 @@
         var  checkbox = document.getElementById('drop-remove');  
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
-        initialView: 'dayGridWeek',
+        initialView: 'timeGridWeek',
         headerToolbar: { center: 'dayGridMonth,timeGridWeek' }, // buttons for switching between views
 
         views: {
@@ -83,49 +83,23 @@
     }
   
     #calendar {
-      float: right;
-      width: 900px;
+      float: left;
+      width: 150vh;
     }
   
   </style>
 <div class="box box-info padding-1">
-    <div id='external-events'>
-        <p>
-          <strong>Draggable Events</strong>
-        </p>
-      
-        <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-          <div class='fc-event-main' data-event='{ "title": "my event", "duration": "05:00" }'>My Event 1</div>
-        </div>
-        <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-          <div class='fc-event-main'>My Event 2</div>
-        </div>
-        <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-          <div class='fc-event-main'>My Event 3</div>
-        </div>
-        <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-          <div class='fc-event-main'>My Event 4</div>
-        </div>
-        <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
-          <div class='fc-event-main'>My Event 5</div>
-        </div>
-      
-        <p>
-          <input type='checkbox' id='drop-remove' />
-          <label for='drop-remove'>remove after drop</label>
-        </p>
-      </div>
+    
     <div class="box-body">
-        <div id='external-events' data-event='{ "title": "my event", "duration": "02:00" }'>drag me</div>
-        <div id='calendar'></div>
+       
         <div class="form-group">
             {{ Form::label('horaInicio') }}
-            {{ Form::text('horaInicio', $citum->horaInicio, ['class' => 'form-control' . ($errors->has('horaInicio') ? ' is-invalid' : ''), 'placeholder' => 'Horainicio']) }}
+            {{ Form::time('horaInicio', $citum->horaInicio, ['class' => 'form-control' . ($errors->has('horaInicio') ? ' is-invalid' : ''), 'placeholder' => 'Horainicio']) }}
             {!! $errors->first('horaInicio', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('horaFin') }}
-            {{ Form::text('horaFin', $citum->horaFin, ['class' => 'form-control' . ($errors->has('horaFin') ? ' is-invalid' : ''), 'placeholder' => 'Horafin']) }}
+            {{ Form::time('horaFin', $citum->horaFin, ['class' => 'form-control' . ($errors->has('horaFin') ? ' is-invalid' : ''), 'placeholder' => 'Horafin']) }}
             {!! $errors->first('horaFin', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
@@ -143,4 +117,25 @@
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Submit</button>
     </div>
+
+    {{-- <div id='external-events'>
+        <p>
+          <strong>Draggable Events</strong>
+        </p>
+      
+        <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
+          <div class='fc-event-main' data-event='{ "title": "my event", "duration": "05:00" }'>My Event 1</div>
+        </div>
+        <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
+          <div class='fc-event-main'>My Event 2</div>
+        </div>
+     
+      
+        <p>
+          <input type='checkbox' id='drop-remove' />
+          <label for='drop-remove'>remove after drop</label>
+        </p>
+      </div> --}}
+      <h5>Horarios de Citas</h5>
+      <div id='calendar'></div>
 </div>
