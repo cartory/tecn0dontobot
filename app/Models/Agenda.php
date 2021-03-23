@@ -27,6 +27,7 @@ class Agenda extends Model
 
     protected $perPage = 20;
     protected $table='Agenda';
+    
     /**
      * Attributes that should be mass-assignable.
      *

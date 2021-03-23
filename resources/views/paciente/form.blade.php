@@ -21,6 +21,11 @@
             {{ Form::text('celular', $paciente->celular, ['class' => 'form-control' . ($errors->has('celular') ? ' is-invalid' : ''), 'placeholder' => 'Celular']) }}
             {!! $errors->first('celular', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+        <div class="form-group">
+            {{ Form::label('genero') }}
+            {{ Form::text('genero', $paciente->genero, ['class' => 'form-control' . ($errors->has('genero') ? ' is-invalid' : ''), 'placeholder' => 'Genero']) }}
+            {!! $errors->first('genero', '<div class="invalid-feedback">:message</p>') !!}
+        </div>
 
     </div>
     <div class="box-footer mt20">

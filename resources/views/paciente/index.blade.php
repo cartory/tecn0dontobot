@@ -40,6 +40,7 @@
 										<th>Nombre</th>
 										<th>Fnac</th>
 										<th>Celular</th>
+										<th>Genero</th>
 
                                         <th></th>
                                     </tr>
@@ -53,6 +54,7 @@
 											<td>{{ $paciente->nombre }}</td>
 											<td>{{ $paciente->fNac }}</td>
 											<td>{{ $paciente->celular }}</td>
+											<td>{{ $paciente->genero }}</td>
 
                                             <td>
                                                 <form action="{{ route('pacientes.destroy',$paciente->id) }}" method="POST">

@@ -36,6 +36,10 @@
                             <strong>Celular:</strong>
                             {{ $paciente->celular }}
                         </div>
+                        <div class="form-group">
+                            <strong>Genero:</strong>
+                            {{ $paciente->genero }}
+                        </div>
 
                     </div>
                 </div>
