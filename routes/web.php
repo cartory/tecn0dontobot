@@ -4,6 +4,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CitumController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\RecetumController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\ConsultumController;
@@ -27,6 +28,7 @@ Route::get('/', function () {
 });
 
 Route::resource('citas', CitumController::class);
+Route::resource('receta', RecetumController::class);
 Route::resource('agendas', AgendaController::class);
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('consulta', ConsultumController::class);
