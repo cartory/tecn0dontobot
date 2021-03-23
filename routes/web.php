@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CitumController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\RecetumController;
@@ -28,7 +28,7 @@ Route::get('/', function () {
 });
 
 Auth::routes();
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::get('/home', [HomeController::class, 'index'])->name('home');
 
 Route::group(['middleware' => ['auth']], function() {
     Route::prefix('admin')->group(function() {
@@ -43,3 +43,6 @@ Route::group(['middleware' => ['auth']], function() {
         Route::resource('especialidades', EspecialidadController::class);
     });
 });
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
