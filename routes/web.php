@@ -2,6 +2,10 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\OdontologoController;
+use App\Http\Controllers\TratamientoController;
 use App\Http\Controllers\EspecialidadController;
 
 /*
@@ -19,4 +23,8 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('usuarios', UsuarioController::class);
+Route::resource('pacientes', PacienteController::class);
+Route::resource('odontologos', OdontologoController::class);
+Route::resource('tratamientos', TratamientoController::class);
 Route::resource('especialidades', EspecialidadController::class);
