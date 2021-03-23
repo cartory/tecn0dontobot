@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 
+use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\UsuarioController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\OdontologoController;
@@ -23,6 +24,7 @@ Route::get('/', function () {
     return view('welcome');
 });
 
+Route::resource('agendas', AgendaController::class);
 Route::resource('usuarios', UsuarioController::class);
 Route::resource('pacientes', PacienteController::class);
 Route::resource('odontologos', OdontologoController::class);
