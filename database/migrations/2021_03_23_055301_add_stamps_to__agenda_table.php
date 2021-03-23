@@ -14,7 +14,7 @@ class AddStampsToAgendaTable extends Migration
     public function up()
     {
         Schema::table('Agenda', function (Blueprint $table) {
-            // $table->timestamps();
+            $table->timestamps();
             $table->softDeletes();
         });
     }
