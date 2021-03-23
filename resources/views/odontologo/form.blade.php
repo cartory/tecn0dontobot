@@ -23,7 +23,7 @@
         </div>
         <div class="form-group">
             {{ Form::label('genero') }}
-            {{ Form::text('genero', $odontologo->genero, ['class' => 'form-control' . ($errors->has('genero') ? ' is-invalid' : ''), 'placeholder' => 'Genero']) }}
+            {{ Form::select('genero', array('M' => 'Masculino', 'F' => 'Femenino'), $odontologo->genero, ['class' => 'form-control' . ($errors->has('genero') ? ' is-invalid' : ''), 'placeholder' => 'Genero']) }}
             {!! $errors->first('genero', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
