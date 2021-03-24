@@ -135,6 +135,8 @@ return [
     */
 
     'providers' => [
+        //Menu generator
+        Harimayco\Menu\MenuServiceProvider::class,
 
         /*
          * Laravel Framework Service Providers...
@@ -189,7 +191,7 @@ return [
     */
 
     'aliases' => [
-
+        'Menu' => Harimayco\Menu\Facades\Menu::class, //Menu dinamico
         'App' => Illuminate\Support\Facades\App::class,
         'Arr' => Illuminate\Support\Arr::class,
         'Artisan' => Illuminate\Support\Facades\Artisan::class,

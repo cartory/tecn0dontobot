@@ -27,6 +27,12 @@
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
           Home
         </button>
+        @php
+            use Harimayco\Menu\Models\Menus;
+            use Harimayco\Menu\Models\MenuItems;
+            $menu = Menus::all();
+        @endphp
+     
         <div class="collapse show" id="home-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
             <li><a href="#" class="link-dark rounded">Overview</a></li>
@@ -36,6 +42,9 @@
         </div>
       </li>
       <li class="mb-1">
+        @foreach ($menu as $item)
+          
+        @endforeach
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
           Dashboard
         </button>

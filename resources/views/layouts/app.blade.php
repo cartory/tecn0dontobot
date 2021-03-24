@@ -11,7 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-
+  
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet" type="text/css">
@@ -86,9 +86,11 @@
         <div class="col-4">  @include('sidebar.sidebar');</div>
        
         <main class=" col-8">
+           
             @yield('content')
         </main>
        </div>
     </div>
 </body>
+@stack('scripts')
 </html>

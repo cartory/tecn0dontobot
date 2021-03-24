@@ -36,3 +36,6 @@ Route::resource('pacientes', PacienteController::class);
 Route::resource('odontologos', OdontologoController::class);
 Route::resource('tratamientos', TratamientoController::class);
 Route::resource('especialidades', EspecialidadController::class);
+Route::get('menuEditar', function(){
+    return  view('menu.edit');
+});
