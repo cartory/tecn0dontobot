@@ -30,7 +30,7 @@
 {{-- JS --}}
 <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.5.1,npm/fullcalendar@5.5.1/locales-all.min.js,npm/fullcalendar@5.5.1/locales-all.min.js,npm/fullcalendar@5.5.1/main.min.js"></script>
 </head>
-<body>
+<body  style="overflow: scroll">
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel">
             <div class="container">
@@ -83,9 +83,9 @@
             </div>
         </nav>
        <div class="row">
-        <div class="col-4">  @include('sidebar.sidebar');</div>
+        <div class="col-3">  @include('sidebar.sidebar');</div>
        
-        <main class=" col-8">
+        <main class=" col-8" >
            
             @yield('content')
         </main>

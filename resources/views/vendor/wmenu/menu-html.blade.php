@@ -99,13 +99,13 @@ $currentUrl = url()->current();
 														</div>
 														@elseif(request()->has("menu"))
 														<div class="publishing-action">
-															<a onclick="getmenus()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Guardar menu</a>
+															<a onclick="createnewmenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Guardar menu</a>
 															<span class="spinner" id="spincustomu2"></span>
 														</div>
 
 														@else
 														<div class="publishing-action">
-															<a onclick="createnewmenu()" name="save_menu" id="save_menu_header" class="button button-primary menu-save">Crear menu</a>
+															<a  onclick="function(){location.reload(); getmenus(); return false;}"  name="save_menu" id="save_menu_header" class="button button-primary menu-save">Crear menu</a>
 														</div>
 														@endif
 													</div>
@@ -130,7 +130,7 @@ $currentUrl = url()->current();
 														</div>
 														@endif
 
-														<ul class="menu ui-sortable" id="menu-to-edit">
+														<ul class="menu ui-sortable" id="menu-to-edit" >
 															@if(isset($menus))
 															@foreach($menus as $m)
 															<li id="menu-item-{{$m->id}}" class="menu-item menu-item-depth-{{$m->depth}} menu-item-page menu-item-edit-inactive pending" style="display: list-item;">
