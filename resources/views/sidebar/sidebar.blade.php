@@ -22,55 +22,37 @@
       <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-5 fw-semibold">OdontoBOT</span>
     </a>
+    @php
+    use Harimayco\Menu\Models\Menus;
+    use Harimayco\Menu\Models\MenuItems;
+   $publicMenu = Menu::getByName('Public');
+
+  @endphp
     <ul class="list-unstyled ps-0">
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#home-collapse" aria-expanded="true">
-          Home
+
+      
+      
+        @foreach ($publicMenu as $unMenu)
+        <li class="mb-1 ">
+        <button href="{{ $unMenu['link'] }}" class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{ $unMenu['label'] }}-collapse" aria-expanded="false">
+           
+          {{ $unMenu['label'] }} 
         </button>
-        @php
-            use Harimayco\Menu\Models\Menus;
-            use Harimayco\Menu\Models\MenuItems;
-            $menu = Menus::all();
-        @endphp
-     
-        <div class="collapse show" id="home-collapse">
+        <div class="collapse" id="{{ $unMenu['label'] }}-collapse">
           <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Updates</a></li>
-            <li><a href="#" class="link-dark rounded">Reports</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="mb-1">
-        @foreach ($menu as $item)
-          
+           
+           
+        @foreach ($unMenu['child'] as $child)
+        <li><a href="{{ $child['link'] }}" class="link-dark rounded">{{ $child['label'] }}</a></li>  
         @endforeach
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#dashboard-collapse" aria-expanded="false">
-          Dashboard
-        </button>
-        <div class="collapse" id="dashboard-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">Overview</a></li>
-            <li><a href="#" class="link-dark rounded">Weekly</a></li>
-            <li><a href="#" class="link-dark rounded">Monthly</a></li>
-            <li><a href="#" class="link-dark rounded">Annually</a></li>
-          </ul>
+       </ul>
         </div>
       </li>
-      <li class="mb-1">
-        <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#orders-collapse" aria-expanded="false">
-          Orders
-        </button>
-        <div class="collapse" id="orders-collapse">
-          <ul class="btn-toggle-nav list-unstyled fw-normal pb-1 small">
-            <li><a href="#" class="link-dark rounded">New</a></li>
-            <li><a href="#" class="link-dark rounded">Processed</a></li>
-            <li><a href="#" class="link-dark rounded">Shipped</a></li>
-            <li><a href="#" class="link-dark rounded">Returned</a></li>
-          </ul>
-        </div>
-      </li>
-      <li class="border-top my-3"></li>
+        @endforeach
+       
+       
+   
+
       <li class="mb-1">
         <button class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#account-collapse" aria-expanded="false">
           Account
@@ -84,5 +66,6 @@
           </ul>
         </div>
       </li>
+      
     </ul>
   </div>
