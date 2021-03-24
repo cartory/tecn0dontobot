@@ -1,7 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
-
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\CitumController;
 use App\Http\Controllers\AgendaController;
 use App\Http\Controllers\RecetumController;
@@ -27,15 +27,22 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('citas', CitumController::class);
-Route::resource('receta', RecetumController::class);
-Route::resource('agendas', AgendaController::class);
-Route::resource('usuarios', UsuarioController::class);
-Route::resource('consulta', ConsultumController::class);
-Route::resource('pacientes', PacienteController::class);
-Route::resource('odontologos', OdontologoController::class);
-Route::resource('tratamientos', TratamientoController::class);
-Route::resource('especialidades', EspecialidadController::class);
-Route::get('menuEditar', function(){
-    return  view('menu.edit');
+Auth::routes();
+Route::get('/home', [HomeController::class, 'index'])->name('home');
+
+Route::group(['middleware' => ['auth']], function() {
+    Route::prefix('admin')->group(function() {
+        Route::resource('citas', CitumController::class);
+        Route::resource('receta', RecetumController::class);
+        Route::resource('agendas', AgendaController::class);
+        Route::resource('usuarios', UsuarioController::class);
+        Route::resource('consulta', ConsultumController::class);
+        Route::resource('pacientes', PacienteController::class);
+        Route::resource('odontologos', OdontologoController::class);
+        Route::resource('tratamientos', TratamientoController::class);
+        Route::resource('especialidades', EspecialidadController::class);
+    });
 });
+
+Auth::routes();
+Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
