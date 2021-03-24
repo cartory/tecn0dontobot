@@ -82,10 +82,13 @@
                 </div>
             </div>
         </nav>
-        @include('sidebar.sidebar');
-        <main class="py-4">
+       <div class="row">
+        <div class="col-4">  @include('sidebar.sidebar');</div>
+       
+        <main class=" col-8">
             @yield('content')
         </main>
+       </div>
     </div>
 </body>
 </html>
