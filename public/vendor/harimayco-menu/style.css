@@ -1885,13 +1885,13 @@
 }
 /* POSIBLE SOLUCION  */
  #hwpwrap #nav-menus-frame {
-    /* margin-left: 300px; */
+    margin-left: 300px; 
   margin-top: 23px;
 } 
 #hwpwrap #wpbody-content #menu-settings-column {
   display: inline;
   width: 281px;
-  /* margin-left: -300px; */
+   margin-left: -300px;
   clear: both;
   float: left;
   padding-top: 0;
