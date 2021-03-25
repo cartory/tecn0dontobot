@@ -20,9 +20,9 @@ $currentUrl = url()->current();
 									{!! Menu::select('menu', $menulist) !!}
 
 									<span class="submit-btn">
-										<input type="submit" class="button-secondary" value="Choose">
+										<input type="submit" class="button-secondary" value="Elegir">
 									</span>
-									<span class="add-new-menu-action"> or <a href="{{ $currentUrl }}?action=edit&menu=0">Crear nuevo menu</a>. </span>
+									<span class="add-new-menu-action"> o <a href="{{ $currentUrl }}?action=edit&menu=0">Crear nuevo menu</a>. </span>
 								</form>
 							</div>
 							<div id="nav-menus-frame">
@@ -36,7 +36,7 @@ $currentUrl = url()->current();
 										<div id="side-sortables" class="accordion-container">
 											<ul class="outer-border">
 												<li class="control-section accordion-section  open add-page" id="add-page">
-													<h3 class="accordion-section-title hndle" tabindex="0"> Custom Link <span class="screen-reader-text">Press return or enter to expand</span></h3>
+													<h3 class="accordion-section-title hndle" tabindex="0"> Link personalizado <span class="screen-reader-text">Press return or enter to expand</span></h3>
 													<div class="accordion-section-content ">
 														<div class="inside">
 															<div class="customlinkdiv" id="customlinkdiv">
@@ -47,7 +47,7 @@ $currentUrl = url()->current();
 																</p>
 
 																<p id="menu-item-name-wrap">
-																	<label class="howto" for="custom-menu-item-name"> <span>Label</span>&nbsp;
+																	<label class="howto" for="custom-menu-item-name"> <span>Titulo</span>&nbsp;
 																		<input id="custom-menu-item-name" name="label" type="text" class="regular-text menu-item-textbox input-with-default-title" title="Label menu">
 																	</label>
 																</p>
@@ -114,7 +114,7 @@ $currentUrl = url()->current();
 													<div id="post-body-content">
 
 														@if(request()->has("menu"))
-														<h3>Menu Structure</h3>
+														<h3>Estructura de menu</h3>
 														<div class="drag-instructions post-body-plain" style="">
 															<p>
 																Pon cada item en el orden que prefieras, haz click en la flecha a la derecha del item para mostrar mas opciones de configuracion.
