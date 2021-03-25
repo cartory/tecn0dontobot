@@ -1,5 +1,9 @@
+@guest
+                            @if (Route::has('login'))
+                           
 @extends('layouts.login')
-
+@endif
+@endguest
 @section('content')
 <div class="container">
     <div class="row justify-content-center">
