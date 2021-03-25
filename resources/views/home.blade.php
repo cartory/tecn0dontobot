@@ -1,9 +1,12 @@
 @extends('layouts.app')
+@section('template_title')
+    Home
+@endsection
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <div class="col-md-8">
+<div class="container-fluid">
+          <div class="row">
+            <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}</div>
 

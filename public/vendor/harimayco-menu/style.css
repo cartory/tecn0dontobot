@@ -33,17 +33,17 @@
   float: right;
   clear: right;
   display: none;
-  width: 281px;
+  
   position: relative;
 }
 #hwpwrap .columns-2 .inner-sidebar {
   margin-right: auto;
-  width: 286px;
+ 
   display: block;
 }
 #hwpwrap .columns-2 .inner-sidebar #side-sortables, #hwpwrap .inner-sidebar #side-sortables {
   min-height: 300px;
-  width: 280px;
+
   padding: 0;
 }
 #hwpwrap .has-right-sidebar .inner-sidebar {
@@ -52,13 +52,13 @@
 #hwpwrap .has-right-sidebar #post-body {
   float: left;
   clear: left;
-  width: 100%;
+
   margin-right: -2000px;
 }
 #hwpwrap .has-right-sidebar #post-body-content {
   margin-right: 300px;
   float: none;
-  width: auto;
+  
 }
 #hwpwrap #col-container, #hwpwrap #col-left, #hwpwrap #col-right {
   overflow: hidden;
@@ -66,12 +66,12 @@
   margin: 0;
 }
 #hwpwrap #col-left {
-  width: 35%;
+ 
 }
 #hwpwrap #col-right {
   float: right;
   clear: right;
-  width: 65%;
+
 }
 #hwpwrap .col-wrap {
   padding: 0 7px;
@@ -109,7 +109,7 @@
   left: 6px;
   top: -25px;
   height: auto;
-  width: auto;
+ 
   display: block;
   font-size: 14px;
   font-weight: 600;
@@ -162,7 +162,7 @@
   vertical-align: top;
   content: "\f111";
   margin: 0 5px 0 0;
-  width: 16px;
+ 
   height: 16px;
   color: #777;
   -webkit-transition: color .1s ease-in 0;
@@ -1863,103 +1863,8 @@
 #hwpwrap .links-table td, #hwpwrap .links-table th {
   padding: 10px 0;
 }
-@media only screen and (max-width: 500px) {
-  #hwpwrap #wp-content-media-buttons a {
-    font-size: 14px;
-    padding: 0 10px;
-  }
-}
-#hwpwrap .drag-drop #drag-drop-area {
-  border: 4px dashed #bbb;
-  height: 200px;
-}
-#hwpwrap .drag-drop .drag-drop-inside {
-  margin: 70px auto 0;
-  width: 250px;
-}
-#hwpwrap .drag-drop-inside p {
-  color: #aaa;
-  font-size: 14px;
-  margin: 5px 0;
-  display: none;
-}
-#hwpwrap .drag-drop .drag-drop-inside p {
-  text-align: center;
-}
-#hwpwrap .drag-drop-inside p.drag-drop-info {
-  font-size: 20px;
-}
-#hwpwrap .drag-drop .drag-drop-inside p, #hwpwrap .drag-drop-inside p.drag-drop-buttons {
-  display: block;
-}
-#hwpwrap .drag-drop.drag-over #drag-drop-area {
-  border-color: #83b4d8;
-}
-#hwpwrap #plupload-upload-ui {
-  position: relative;
-}
-@media screen and (max-width: 782px) {
-  #hwpwrap .about-wrap .one-col > div, #hwpwrap .about-wrap .three-col > div, #hwpwrap .about-wrap .two-col > div {
-    width: 100%;
-    margin: 0 0 40px;
-    padding: 0 0 40px;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-  }
-  #hwpwrap .about-wrap .col > div.last-feature, #hwpwrap .about-wrap .feature-list div {
-    margin: 0;
-    padding: 0;
-    border-bottom: none;
-  }
-  #hwpwrap .about-wrap .headline-feature .feature-section {
-    max-width: 100%;
-  }
-  #hwpwrap .about-wrap .feature-list .feature-section {
-    padding: 0 0 40px;
-  }
-}
-@media only screen and (max-width: 500px) {
-  #hwpwrap .about-wrap {
-    margin-right: 20px;
-    margin-left: 10px;
-  }
-  #hwpwrap .about-wrap .about-text, #hwpwrap .about-wrap h1 {
-    margin-right: 0;
-  }
-  #hwpwrap .about-wrap .about-text {
-    margin-bottom: .25em;
-  }
-  #hwpwrap .about-wrap .wp-badge {
-    position: relative;
-    margin-bottom: 1.5em;
-    width: 100%;
-  }
-  #hwpwrap .about-wrap h2.nav-tab-wrapper {
-    padding-left: 0;
-    border-bottom: 0;
-  }
-  #hwpwrap .about-wrap h2 .nav-tab {
-    margin-top: 10px;
-    margin-right: 10px;
-    border-bottom: 1px solid #ccc;
-  }
-  #hwpwrap .about-wrap .headline-feature .feature-section div, #hwpwrap .about-wrap .three-col div {
-    width: 100% !important;
-    float: none !important;
-  }
-  #hwpwrap .about-wrap .dfw p {
-    max-width: 90%;
-  }
-}
-@media only screen and (max-width: 400px) {
-  #hwpwrap .about-wrap .feature-list svg {
-    margin-top: 15px;
-    height: 65px;
-    width: 65px;
-  }
-  #hwpwrap .about-wrap .feature-list.finer-points h4, #hwpwrap .about-wrap .feature-list.finer-points p {
-    margin-left: 80px;
-  }
-}
+
+
 #hwpwrap .no-js #message {
   display: block;
 }
@@ -1978,14 +1883,15 @@
 #hwpwrap #nav-menu-meta .button-controls {
   margin-bottom: 0;
 }
-#hwpwrap #nav-menus-frame {
-  margin-left: 300px;
+/* POSIBLE SOLUCION  */
+ #hwpwrap #nav-menus-frame {
+    /* margin-left: 300px; */
   margin-top: 23px;
-}
+} 
 #hwpwrap #wpbody-content #menu-settings-column {
   display: inline;
   width: 281px;
-  margin-left: -300px;
+  /* margin-left: -300px; */
   clear: both;
   float: left;
   padding-top: 0;

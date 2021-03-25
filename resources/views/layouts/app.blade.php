@@ -33,7 +33,7 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
 </head>
 <body  style="overflow: scroll">
-    <div id="app">
+    <div id="app" class="container">
         @if (!Route::has('login'))
        
   
