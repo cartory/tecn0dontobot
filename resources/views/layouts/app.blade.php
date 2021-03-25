@@ -91,8 +91,8 @@
             </div>
         </nav>
         @endif
-       <div class="row">
-        <div class="col-3">  @include('sidebar.sidebar');</div>
+       <div class="row ">
+        <div class="col-4 bg-white ">  @include('sidebar.sidebar');</div>
        
         <main class=" col-8" >
            
