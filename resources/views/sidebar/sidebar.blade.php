@@ -22,17 +22,25 @@
       <svg class="bi me-2" width="30" height="24"><use xlink:href="#bootstrap"/></svg>
       <span class="fs-5 fw-semibold">OdontoBOT</span>
     </a>
-    @php
-    use Harimayco\Menu\Models\Menus;
-    use Harimayco\Menu\Models\MenuItems;
-   $publicMenu = Menu::getByName('Public');
+      @php
+      use Illuminate\Support\Facades\Auth;
+      use Harimayco\Menu\Models\Menus;
+      use Harimayco\Menu\Models\MenuItems;
+      $publicMenu = Menu::getByName('Public');
+      $userLoggedRole=Auth::user()->roleId;
+      \Log::info( $userLoggedRole);
+     // Usando eager loading
+      $publicMenu = Menus::where('name','Public')->with(['items' => function ($query) use($userLoggedRole){
+                $query->where('role_id','=', $userLoggedRole);
 
-  @endphp
+            }])->first();
+            \Log::info( $publicMenu);
+    @endphp
     <ul class="list-unstyled ps-0">
 
       
       
-        @foreach ($publicMenu as $unMenu)
+        @foreach ($publicMenu['items'] as $unMenu)
         <li class="mb-1 ">
         <button href="{{ $unMenu['link'] }}" class="btn btn-toggle align-items-center rounded collapsed" data-bs-toggle="collapse" data-bs-target="#{{ $unMenu['label'] }}-collapse" aria-expanded="false">
            
