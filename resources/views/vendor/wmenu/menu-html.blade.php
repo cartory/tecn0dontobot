@@ -105,7 +105,7 @@ $currentUrl = url()->current();
 
 														@else
 														<div class="publishing-action">
-															<a  onclick="function(){location.reload(); getmenus(); return false;}"  name="save_menu" id="save_menu_header" class="button button-primary menu-save">Crear menu</a>
+															<a  onclick="getmenus()"  name="save_menu" id="save_menu_header" class="button button-primary menu-save">Crear menu</a>
 														</div>
 														@endif
 													</div>

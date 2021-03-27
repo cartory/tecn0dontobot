@@ -1,3 +1,5 @@
+
+
 var arraydata = [];
 function getmenus() {
   
@@ -36,8 +38,8 @@ function getmenus() {
     cont++;
   });
   updateitem();
-  actualizarmenu();
-  location.reload();
+  
+ 
 }
 
 function addcustommenu() {
@@ -58,6 +60,10 @@ function addcustommenu() {
     },
     complete: function() {
       $('#spincustomu').hide();
+    },error:function(xhr,status,error) {
+      console.log(xhr);
+      var err = eval("(" + xhr.responseText + ")");
+      console.log(err);
     }
   });
 }
@@ -105,7 +111,7 @@ function updateitem(id = 0) {
         role_id: role
       });
     });
-
+ console.log('Datos de actualizar item post: ',arr_data);
     var data = { arraydata: arr_data };
   }
   $.ajax({
@@ -117,16 +123,25 @@ function updateitem(id = 0) {
         $('#spincustomu2').show();
       }
     },
-    success: function(response) {},
+    success: function(response) {
+    // console.log('Respuesta de  Actualizar item: ',response);
+    actualizarmenu();
+    },
     complete: function() {
       if (id) {
         $('#spincustomu2').hide();
       }
+    },error:function(xhr,status,error) {
+      console.log(xhr);
+      var err = eval("(" + xhr.responseText + ")");
+      console.log(err);
     }
   });
 }
 
 function actualizarmenu() {
+
+ try {
   $.ajax({
     dataType: 'json',
     data: {
@@ -141,12 +156,23 @@ function actualizarmenu() {
       $('#spincustomu2').show();
     },
     success: function(response) {
-      console.log('aqu llega');
+      console.log(response);
+      // console.log('aqu llega Actualizar menu');
+      location.reload();
     },
     complete: function() {
       $('#spincustomu2').hide();
+      
+    },error:function(xhr,status,error) {
+      console.log(xhr);
+      var err = eval("(" + xhr.responseText + ")");
+      console.log(err);
     }
   });
+ } catch (error) {
+   console.log(error);
+ }
+ 
 }
 
 function deleteitem(id) {
