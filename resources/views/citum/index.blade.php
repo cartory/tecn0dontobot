@@ -38,6 +38,7 @@
                                         
 										<th>Horainicio</th>
 										<th>Horafin</th>
+                                        <th>fecha</th>
 										<th>Pacienteid</th>
 										<th>Agendaid</th>
 
@@ -51,6 +52,7 @@
                                             
 											<td>{{ $citum->horaInicio }}</td>
 											<td>{{ $citum->horaFin }}</td>
+											<td>{{ $citum->fecha }}</td>
 											<td>{{ $citum->Pacienteid }}</td>
 											<td>{{ $citum->Agendaid }}</td>
 

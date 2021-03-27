@@ -41,12 +41,16 @@
 										<th>Fnac</th>
 										<th>Celular</th>
 										<th>Genero</th>
-										<th>Usuarioid</th>
+                                        {{-- Equivalente a usuarioid: --}}
+										<th>Email de Usuario</th> 
 
                                         <th></th>
                                     </tr>
                                 </thead>
                                 <tbody>
+                                    @php
+                                        use App\Models\User; 
+                                    @endphp
                                     @foreach ($odontologos as $odontologo)
                                         <tr>
                                             <td>{{ ++$i }}</td>
@@ -56,7 +60,7 @@
 											<td>{{ $odontologo->fNac }}</td>
 											<td>{{ $odontologo->celular }}</td>
 											<td>{{ $odontologo->genero }}</td>
-											<td>{{ $odontologo->Usuarioid }}</td>
+											<td>{{ User::where('id',$odontologo->Usuarioid)->pluck('email')->first() }}</td>
 
                                             <td>
                                                 <form action="{{ route('odontologos.destroy',$odontologo->id) }}" method="POST">

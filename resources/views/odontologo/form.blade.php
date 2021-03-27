@@ -26,9 +26,12 @@
             {{ Form::select('genero', array('M' => 'Masculino', 'F' => 'Femenino'), $odontologo->genero, ['class' => 'form-control' . ($errors->has('genero') ? ' is-invalid' : ''), 'placeholder' => 'Genero']) }}
             {!! $errors->first('genero', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+        @php
+             use App\Models\User; 
+        @endphp
         <div class="form-group">
-            {{ Form::label('Usuarioid') }}
-            {{ Form::text('Usuarioid', $odontologo->Usuarioid, ['class' => 'form-control' . ($errors->has('Usuarioid') ? ' is-invalid' : ''), 'placeholder' => 'Usuarioid']) }}
+            {{ Form::label('Email de usuario') }}
+            {{ Form::select('Usuarioid',User::all()->pluck('email'), $odontologo->Usuarioid, ['class' => 'form-control' . ($errors->has('Usuarioid') ? ' is-invalid' : ''), 'placeholder' => 'Usuarioid']) }}
             {!! $errors->first('Usuarioid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 

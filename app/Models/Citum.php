@@ -29,6 +29,8 @@ class Citum extends Model
 
     static $rules = [
 		'horaInicio' => 'required',
+		'horaFin' => 'required',
+		'fecha' => 'required',
 		'Pacienteid' => 'required',
 		'Agendaid' => 'required',
     ];
@@ -40,7 +42,7 @@ class Citum extends Model
      *
      * @var array
      */
-    protected $fillable = ['horaInicio','horaFin','Pacienteid','Agendaid'];
+    protected $fillable = ['horaInicio','horaFin','fecha','Pacienteid','Agendaid'];
 
 
     /**

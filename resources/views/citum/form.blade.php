@@ -84,7 +84,7 @@
   
     #calendar {
       float: left;
-      width: 150vh;
+      width: 100%;
     }
   
   </style>
@@ -102,6 +102,11 @@
             {{ Form::time('horaFin', $citum->horaFin, ['class' => 'form-control' . ($errors->has('horaFin') ? ' is-invalid' : ''), 'placeholder' => 'Horafin']) }}
             {!! $errors->first('horaFin', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+        <div class="form-group">
+          {{ Form::label('Fecha') }}
+          {{ Form::date('fecha', $citum->horaFin, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'placeholder' => 'fecha de cita']) }}
+          {!! $errors->first('horaFin', '<div class="invalid-feedback">:message</p>') !!}
+      </div>
         <div class="form-group">
             {{ Form::label('Pacienteid') }}
             {{ Form::text('Pacienteid', $citum->Pacienteid, ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Pacienteid']) }}
