@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Agenda;
+use App\Models\Odontologo;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class AgendaController
@@ -32,6 +34,8 @@ class AgendaController extends Controller
     public function create()
     {
         $agenda = new Agenda();
+        $loggedUserId = Auth::user()->id;
+        $agenda->Odontologoid=Odontologo::where('Usuarioid', '=', $loggedUserId)->firstOrFail();;
         return view('agenda.create', compact('agenda'));
     }
 
