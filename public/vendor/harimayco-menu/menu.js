@@ -1,5 +1,6 @@
 var arraydata = [];
 function getmenus() {
+  
   arraydata = [];
   $('#spinsavemenu').show();
 
@@ -36,6 +37,7 @@ function getmenus() {
   });
   updateitem();
   actualizarmenu();
+  location.reload();
 }
 
 function addcustommenu() {
