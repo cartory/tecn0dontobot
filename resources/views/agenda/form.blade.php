@@ -6,6 +6,7 @@
             {{ Form::text('nombre', $agenda->nombre, ['class' => 'form-control' . ($errors->has('nombre') ? ' is-invalid' : ''), 'placeholder' => 'Nombre']) }}
             {!! $errors->first('nombre', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+        Nota: La agenda sera asignada a su usuario
         <div hidden class="form-group">
             {{ Form::label('Odontologoid') }}
             {{ Form::number('Odontologoid', $agenda->Odontologoid, ['class' => 'form-control' . ($errors->has('Odontologoid') ? ' is-invalid' : ''), 'placeholder' => 'Odontologoid']) }}

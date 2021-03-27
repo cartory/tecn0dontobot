@@ -36,7 +36,11 @@
                             <strong>Agendaid:</strong>
                             {{ $citum->Agendaid }}
                         </div>
-
+                        <div class="form-group">
+                            <strong>Fecha:</strong>
+                            {{ $citum->fecha }}
+                        </div>
+                        
                     </div>
                 </div>
             </div>

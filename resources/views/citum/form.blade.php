@@ -84,14 +84,17 @@
   
     #calendar {
       float: left;
-      width: 150vh;
+      width: 100%;
     }
   
   </style>
 <div class="box box-info padding-1">
     
     <div class="box-body">
-       
+      @php
+        use App\Models\Paciente; 
+        use App\Models\Agenda; 
+      @endphp
         <div class="form-group">
             {{ Form::label('horaInicio') }}
             {{ Form::time('horaInicio', $citum->horaInicio, ['class' => 'form-control' . ($errors->has('horaInicio') ? ' is-invalid' : ''), 'placeholder' => 'Horainicio']) }}
@@ -103,13 +106,18 @@
             {!! $errors->first('horaFin', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
+          {{ Form::label('Fecha') }}
+          {{ Form::date('fecha', $citum->horaFin, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'placeholder' => 'fecha de cita']) }}
+          {!! $errors->first('horaFin', '<div class="invalid-feedback">:message</p>') !!}
+      </div>
+        <div class="form-group">
             {{ Form::label('Pacienteid') }}
-            {{ Form::text('Pacienteid', $citum->Pacienteid, ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Pacienteid']) }}
+            {{ Form::select('Pacienteid' ,[], ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Pacienteid']) }}
             {!! $errors->first('Pacienteid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         <div class="form-group">
             {{ Form::label('Agendaid') }}
-            {{ Form::text('Agendaid', $citum->Agendaid, ['class' => 'form-control' . ($errors->has('Agendaid') ? ' is-invalid' : ''), 'placeholder' => 'Agendaid']) }}
+            {{ Form::select('Agendaid', [], ['class' => 'form-control' . ($errors->has('Agendaid') ? ' is-invalid' : ''), 'placeholder' => 'Agendaid']) }}
             {!! $errors->first('Agendaid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
