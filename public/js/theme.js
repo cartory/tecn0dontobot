@@ -1,8 +1,9 @@
 function setTheme(theme) {
     console.log("Cambiar tema");
+    console.log(theme);
     localStorage.setItem("tema", theme);
-    var themes = ["claro", "oscuro","adolescente","adulto","nino"];
-    for (var i=0; i < themes.length; i++) {
+    var themes = ["claro", "oscuro", "adolescente", "adulto", "nino"];
+    for (var i = 0; i < themes.length; i++) {
 
         var styleSheet = document.getElementById(themes[i]);
         if (themes[i] == theme) {
@@ -13,14 +14,12 @@ function setTheme(theme) {
     }
 }
 
-function loadTema(){
+function loadTema() {
     var t = localStorage.getItem("tema");
 
-    if(t){
+    if (t) {
         setTheme(t);
-    }else{
+    } else {
         localStorage.setItem("tema", 'claro');
     }
-
-
 }
