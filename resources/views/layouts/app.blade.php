@@ -121,15 +121,29 @@
             </nav>
         @endif
        <div class="row ">
-        <div class="col-3 bg-white ">  @include('sidebar.sidebar')</div>
+        <div class="col-3 card bg-light">  @include('sidebar.sidebar')</div>
 
         <main class=" col-9" >
 
             @yield('content')
         </main>
        </div>
+       <footer  >
+        Numero de Visitas :N visitas
+    </footer>  
     </div>
+    
 </body>
 @stack('scripts')
+<style>
+    #footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+</style>
 
 </html>
