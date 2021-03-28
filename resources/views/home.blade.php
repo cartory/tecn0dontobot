@@ -10,15 +10,15 @@
             <div class="col-sm-12">
             <div class="card">
                 <div class="card-header">{{ __('Dashboard') }}
-                    <button style="float: right; margin:5px;" onclick="@{{setTheme('claro')}}" class="btn btn-warning">Claro</button>
+                    <button style="float: right; margin:5px;" onclick="setTheme('claro', {{ json_encode(Auth::user()->id) }})" class="btn btn-warning">Claro</button>
 
-                    <button style="float: right; margin:5px;" onclick="@{{setTheme('oscuro')}}"  class="btn btn-dark">Oscuro</button>
+                    <button style="float: right; margin:5px;" onclick="setTheme('oscuro', {{ json_encode(Auth::user()->id) }})"  class="btn btn-dark">Oscuro</button>
 
-                    <button style="float: right; margin:5px;" onclick="@{{setTheme('nino')}}"  class="btn btn-success">Infantil</button>
+                    <button style="float: right; margin:5px;" onclick="setTheme('nino', {{ json_encode(Auth::user()->id) }})"  class="btn btn-success">Infantil</button>
 
-                    <button style="float: right; margin:5px;" onclick="@{{setTheme('adolescente')}}" class="btn btn-danger">Adolescente</button>
+                    <button style="float: right; margin:5px;" onclick="setTheme('adolescente', {{ json_encode(Auth::user()->id) }})" class="btn btn-danger">Adolescente</button>
 
-                    <button style="float: right; margin:5px;" onclick="@{{setTheme('adulto')}}" class="btn btn-info">Adulto</button>
+                    <button style="float: right; margin:5px;" onclick="setTheme('adulto', {{ json_encode(Auth::user()->id) }})" class="btn btn-info">Adulto</button>
                 </div>
 
                 <div class="card-body">

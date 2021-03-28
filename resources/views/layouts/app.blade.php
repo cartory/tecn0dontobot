@@ -46,18 +46,25 @@
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
-    <link rel="stylesheet" type="text/css" href="css/temas/claro.css" id="claro"/>
-    <link rel="stylesheet" type="text/css" href="css/temas/oscuro.css" id="oscuro" disabled="disabled"/>
-    <link rel="stylesheet" type="text/css" href="css/temas/nino.css" id="nino" disabled="disabled"/>
-    <link rel="stylesheet" type="text/css" href="css/temas/adulto.css" id="adulto" disabled="disabled"/>
-    <link rel="stylesheet" type="text/css" href="css/temas/adolescente.css" id="adolescente" disabled="disabled"/>
-
+    @if (Auth::check())
+        <link 
+            rel="stylesheet" 
+            type="text/css" 
+            href="{{ asset('css/temas/'.Auth::user()->theme.'.css') }}"
+            id="theme"
+        />
+    @else
+        <link 
+            rel="stylesheet" 
+            type="text/css" 
+            href="{{ asset('css/temas/claro.css') }}"
+            id="theme"
+        /> 
+    @endif
 </head>
-<body  style="overflow: scroll" onload="@{{loadTema()}}">
+<body  style="overflow: scroll">
     <div id="app" class="container">
         @if (!Route::has('login'))
-
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
