@@ -1,11 +1,46 @@
+@php
+        
+use Illuminate\Support\Facades\Auth;
+use \App\Http\Controllers\CitumController;
+$citaCont=new CitumController()
+ @endphp
+ <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
 
     document.addEventListener('DOMContentLoaded', function() {
-       
+        // Evento de prueba
+    // var events=[
+    // { // this object will be "parsed" into an Event Object
+    //   title: 'The Title', // a property!
+    //   startRecur: '2021-03-27', // a property!
+    //   endRecur: '2021-03-28', // a property! ** see important note below about 'end' **
+    //   startTime: '14:30',
+    //   endTime: '15:40'
+    // }
+    
+  ]
+  var citas=<?php echo json_encode( $citaCont->getAll(Auth::user()->id), JSON_HEX_TAG); ?> 
+  citas=JSON.parse(citas)
+  console.log(citas);
+  for (const cita of citas) {
+    var fechaCitaActual=cita.fecha;
+    var tomorrow = new Date(fechaCitaActual);
+    tomorrow.setDate((tomorrow.getDate()) + 1);
+     console.log(fechaCitaActual,tomorrow.toISOString());
+    events.push({ // this object will be "parsed" into an Event Object
+      title: 'Cita', // a property!
+      startRecur:  fechaCitaActual, // a property!
+      endRecur: tomorrow.toISOString().split('T')[0], // a property! ** see important note below about 'end' **
+      startTime: cita.horaInicio,
+      endTime: cita.horaFin
+    })
+  }
+  console.log(events);
         let draggableEl = document.getElementById('external-events');
         var  checkbox = document.getElementById('drop-remove');  
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
+        events:events,
         initialView: 'timeGridWeek',
         headerToolbar: { center: 'dayGridMonth,timeGridWeek' }, // buttons for switching between views
 
@@ -14,7 +49,7 @@
             titleFormat: { year: 'numeric', month: '2-digit', day: '2-digit' }
             // other view-specific options here
         }},
-         editable: true,
+        //  editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
       drop: function(arg) {
         // is the "remove after drop" checkbox checked?

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Agenda;
 use App\Models\Citum;
+use App\Models\Odontologo;
 use Illuminate\Http\Request;
 
 /**
@@ -10,7 +12,19 @@ use Illuminate\Http\Request;
  * @package App\Http\Controllers
  */
 class CitumController extends Controller
-{
+{   
+    public function getAll($userId){
+        
+    
+        $odontologoId=Odontologo::where('Usuarioid',$userId)->first()->id;
+        
+        $agendaIds=Agenda::where('Odontologoid',$odontologoId)->pluck('id');
+
+       
+        $citas=Citum::whereIn('Agendaid', $agendaIds)->get();
+         \Log::info($citas->toJson());
+        return $citas->toJson();
+    }
     /**
      * Display a listing of the resource.
      *

@@ -29,7 +29,7 @@ Route::get('/', function () {
 
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
-
+Route::post('/citas/all', [CitumController::class, 'getAll']);
 Route::group(['middleware' => ['auth']], function() {
     Route::prefix('admin')->group(function() {
         Route::resource('citas', CitumController::class);
