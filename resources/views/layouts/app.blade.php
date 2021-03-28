@@ -129,7 +129,23 @@
         </main>
        </div>
        <footer  >
-        Numero de Visitas :N visitas
+           @php
+                use Harimayco\Menu\Models\MenuItems;
+               $routeNow =request()->path();
+               $visitasActuales=MenuItems::where('link','/'.$routeNow)->pluck('visitas')->first();
+               if($visitasActuales!=[]){
+                   $visitaNueva=$visitasActuales+1;
+                   $vista=MenuItems::where('link','/'.$routeNow)->first();
+                  
+                   $vista->visitas=$visitaNueva;
+                   
+                   $vista->save();
+               }
+           @endphp
+           @if ($visitasActuales!=[])
+           <span class="badge badge-secondary">Numero de Visitas : {{$visitasActuales}}</span>  
+           @endif
+       
     </footer>  
     </div>
     
