@@ -111,13 +111,14 @@
           {!! $errors->first('horaFin', '<div class="invalid-feedback">:message</p>') !!}
       </div>
         <div class="form-group">
-            {{ Form::label('Pacienteid') }}
-            {{ Form::select('Pacienteid' ,[], ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Pacienteid']) }}
+            {{ Form::label('Paciente') }}
+            {{ Form::select('Pacienteid' ,Paciente::all()->pluck('nombre','id'),Paciente::all()->pluck('id'), ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione paciente']) }}
             {!! $errors->first('Pacienteid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+
         <div class="form-group">
-            {{ Form::label('Agendaid') }}
-            {{ Form::select('Agendaid', [], ['class' => 'form-control' . ($errors->has('Agendaid') ? ' is-invalid' : ''), 'placeholder' => 'Agendaid']) }}
+            {{ Form::label('Agenda') }}
+            {{ Form::select('Agendaid',Agenda::all()->pluck('nombre','id'),Agenda::all()->pluck('id'), ['class' => 'form-control' . ($errors->has('Agendaid') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona agenda']) }}
             {!! $errors->first('Agendaid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
