@@ -1,7 +1,5 @@
 // claro, nion, adolescente, adulto, oscuro
 function setTheme(theme, id) {
-    // console.log("Cambiar tema");
-    console.log(typeof id, id);
     let link = document.getElementById('theme');
     let href = link.href.split('/');
     href.pop();
@@ -22,15 +20,5 @@ function setTheme(theme, id) {
 
     } catch (error) {
         console.error(error);
-    }
-}
-
-function loadTema() {
-    var t = localStorage.getItem("tema");
-
-    if (t) {
-        setTheme(t);
-    } else {
-        localStorage.setItem("tema", 'claro');
     }
 }
