@@ -11,32 +11,41 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
-  
+    <script src="{{ asset('js/theme.js')}}" defer></script>
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
+
+
 
    {{--Bootstrap  --}}
     <!-- CSS only -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
     <!-- JavaScript Bundle with Popper -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.bundle.min.js" integrity="sha384-b5kHyXgcpbZJO/tY9Ul7kGkf1S0CWuKcCD38l8YkeH8z8QjE0GmW1gYU5S9FOnJ0" crossorigin="anonymous"></script>
-    
+
     {{-- Fullcalendar --}}
     {{-- Styles --}}
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.5.1/main.min.css,npm/fullcalendar@5.5.1/main.min.css">
     {{-- JS --}}
     <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.5.1,npm/fullcalendar@5.5.1/locales-all.min.js,npm/fullcalendar@5.5.1/locales-all.min.js,npm/fullcalendar@5.5.1/main.min.js"></script>
-    
+
 
     <!-- Styles -->
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
+
+    <link rel="stylesheet" type="text/css" href="css/temas/claro.css" id="claro"/>
+    <link rel="stylesheet" type="text/css" href="css/temas/oscuro.css" id="oscuro" disabled="disabled"/>
+    <link rel="stylesheet" type="text/css" href="css/temas/nino.css" id="nino" disabled="disabled"/>
+    <link rel="stylesheet" type="text/css" href="css/temas/adulto.css" id="adulto" disabled="disabled"/>
+    <link rel="stylesheet" type="text/css" href="css/temas/adolescente.css" id="adolescente" disabled="disabled"/>
+
 </head>
-<body  style="overflow: scroll">
+<body  style="overflow: scroll" onload="@{{loadTema()}}">
     <div id="app" class="container">
         @if (!Route::has('login'))
-       
-  
+
+
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
                 <a class="navbar-brand" href="{{ url('/') }}">
@@ -61,7 +70,7 @@
                                     <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
                                 </li>
                             @endif
-                            
+
                             @if (Route::has('register'))
                                 <li class="nav-item">
                                     <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
@@ -93,9 +102,9 @@
         @endif
        <div class="row ">
         <div class="col-3 bg-white ">  @include('sidebar.sidebar')</div>
-       
+
         <main class=" col-8" >
-           
+
             @yield('content')
         </main>
        </div>
