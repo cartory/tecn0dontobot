@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConsultaTratamiento;
 use App\Models\Consultum;
 use Illuminate\Http\Request;
 
@@ -44,9 +45,14 @@ class ConsultumController extends Controller
     public function store(Request $request)
     {
         request()->validate(Consultum::$rules);
-
+        
         $consultum = Consultum::create($request->all());
-
+        \Log::info($consultum->id);
+        foreach ($request->tratamientos as $tratamiento) {
+            # code...
+            ConsultaTratamiento::create(['Tratamientoid'=>$tratamiento,'Consultaid'=>($consultum->id)]);
+        }
+        
         return redirect()->route('consulta.index')
             ->with('success', 'Consultum created successfully.');
     }
@@ -102,7 +108,10 @@ class ConsultumController extends Controller
     public function destroy($id)
     {
         $consultum = Consultum::find($id)->delete();
-
+        $intermedium=ConsultaTratamiento::where('Consultaid',$id)->get();
+        foreach ($intermedium as $unaConsultaTratamiento ) {
+           $unaConsultaTratamiento->delete();
+        }
         return redirect()->route('consulta.index')
             ->with('success', 'Consultum deleted successfully');
     }

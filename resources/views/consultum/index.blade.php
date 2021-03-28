@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Consultum
+    Consultas 
 @endsection
 
 @section('content')

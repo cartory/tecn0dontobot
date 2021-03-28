@@ -1,7 +1,7 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Update Consultum
+    Editar Consulta
 @endsection
 
 @section('content')

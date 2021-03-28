@@ -22,7 +22,7 @@ class CitumController extends Controller
 
        
         $citas=Citum::whereIn('Agendaid', $agendaIds)->get();
-         \Log::info($citas->toJson());
+        //  \Log::info($citas->toJson());
         return $citas->toJson();
     }
     /**
