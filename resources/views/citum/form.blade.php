@@ -9,16 +9,7 @@ $citaCont=new CitumController()
 
     document.addEventListener('DOMContentLoaded', function() {
         // Evento de prueba
-    // var events=[
-    // { // this object will be "parsed" into an Event Object
-    //   title: 'The Title', // a property!
-    //   startRecur: '2021-03-27', // a property!
-    //   endRecur: '2021-03-28', // a property! ** see important note below about 'end' **
-    //   startTime: '14:30',
-    //   endTime: '15:40'
-    // }
-    
-  ]
+     var events=[  ]
   var citas=<?php echo json_encode( $citaCont->getAll(Auth::user()->id), JSON_HEX_TAG); ?> 
   citas=JSON.parse(citas)
   console.log(citas);
