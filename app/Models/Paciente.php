@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
 
 /**
  * Class Paciente
@@ -24,6 +25,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Paciente extends Model
 {
+    use HasFactory;
     use SoftDeletes;
 
     static $rules = [
@@ -34,7 +36,7 @@ class Paciente extends Model
 		'genero' => 'required',
     ];
 
-    protected $perPage = 20;
+    protected $perPage = 6;
     protected $table = 'Paciente';
     
     /**
