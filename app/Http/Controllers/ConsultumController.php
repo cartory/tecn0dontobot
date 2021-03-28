@@ -35,7 +35,13 @@ class ConsultumController extends Controller
         $consultum = new Consultum();
         return view('consultum.create', compact('consultum'));
     }
-
+    /**
+     * id  de la consulta
+     */
+    public function createFromConsulta($consultaSeleccionadaId)
+    {
+        return view('consultum.createFromConsulta', compact('consultaSeleccionadaId'));
+    }
     /**
      * Store a newly created resource in storage.
      *

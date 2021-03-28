@@ -30,8 +30,11 @@ Route::get('/', function () {
 Auth::routes();
 Route::get('/home', [HomeController::class, 'index'])->name('home');
 Route::post('/citas/all', [CitumController::class, 'getAll']);
+
 Route::group(['middleware' => ['auth']], function() {
     Route::prefix('admin')->group(function() {
+        Route::post('receta/createFromConsulta', [RecetumController::class, 'createFromConsulta']);
+
         Route::resource('citas', CitumController::class);
         Route::resource('receta', RecetumController::class);
         Route::resource('agendas', AgendaController::class);
