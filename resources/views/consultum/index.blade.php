@@ -51,8 +51,10 @@
 											<td>{{ $consultum->Citaid }}</td>
 
                                             <td>
+                                                
                                                 <form action="{{ route('consulta.destroy',$consultum->id) }}" method="POST">
-                                                    {{-- <a class="btn btn-sm btn-primary " href="{{ route('receta/createFromConsulta',$consultum->id) }}"><i class="fa fa-fw fa-book"></i> Recetar</a> --}}
+                                                    
+                                                    <a class="btn btn-sm btn-primary " href="{{ route('recetacreateFromConsulta',$consultum->id) }}"><i class="fa fa-fw fa-book"></i> Recetar</a>
                                                     <a class="btn btn-sm btn-primary " href="{{ route('consulta.show',$consultum->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
                                                     <a class="btn btn-sm btn-success" href="{{ route('consulta.edit',$consultum->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
                                                     @csrf

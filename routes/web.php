@@ -33,7 +33,8 @@ Route::post('/citas/all', [CitumController::class, 'getAll']);
 
 Route::group(['middleware' => ['auth']], function() {
     Route::prefix('admin')->group(function() {
-        Route::post('receta/createFromConsulta', [RecetumController::class, 'createFromConsulta']);
+        Route::get('recet/createFromConsulta/{consultaSeleccionadaId}', [RecetumController::class, 'createFromConsulta'])->name('recetacreateFromConsulta');
+        Route::get('recet/verFromConsulta/{consultaSeleccionadaId}', [RecetumController::class, 'verFromConsulta'])->name('receta.showDeConsulta');
 
         Route::resource('citas', CitumController::class);
         Route::resource('receta', RecetumController::class);

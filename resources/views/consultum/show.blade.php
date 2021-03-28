@@ -3,7 +3,9 @@
 @section('template_title')
     {{ $consultum->name ?? 'Show Consultum' }}
 @endsection
-
+@php
+    
+@endphp
 @section('content')
     <section class="content container-fluid">
         <div class="row">
@@ -28,7 +30,13 @@
                             <strong>Cita Asignada:</strong>
                             {{ $consultum->Citaid }}
                         </div>
-
+                       <div>
+                        <strong>Tratamientos realizados:</strong>
+                        @foreach ($tratamientosRealizados as $tratamiento)
+                            {{$tratamiento->nombre}} .
+                        @endforeach
+                        <a class="btn btn-sm btn-primary " href="{{ route('receta.showDeConsulta',$consultum->id) }}"><i class="fa fa-fw fa-eye"></i> Ver Receta</a>
+                       </div>
                     </div>
                 </div>
             </div>
