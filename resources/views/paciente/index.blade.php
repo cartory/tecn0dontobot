@@ -20,7 +20,7 @@
                                 <a href="{{ route('pacientes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nueva') }}
                                 </a>
-                              </div>
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -31,17 +31,17 @@
 
                     <div class="card-body">
                         <div class="table-responsive">
-                            <table class="table table-striped table-hover">
+                            <table class="table table-hover">
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
-										<th>Ci</th>
-										<th>Nombre</th>
-										<th>Fnac</th>
-										<th>Celular</th>
-										<th>Genero</th>
 
+                                        <th>Ci</th>
+                                        <th>Nombre</th>
+                                        <th>Fnac</th>
+                                        <th>Celular</th>
+                                        <th>Genero</th>
+                                        {{-- <th>Acción</th> --}}
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -49,20 +49,26 @@
                                     @foreach ($pacientes as $paciente)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
-											<td>{{ $paciente->ci }}</td>
-											<td>{{ $paciente->nombre }}</td>
-											<td>{{ $paciente->fNac }}</td>
-											<td>{{ $paciente->celular }}</td>
-											<td>{{ $paciente->genero }}</td>
+
+                                            <td>{{ $paciente->ci }}</td>
+                                            <td>{{ $paciente->nombre }}</td>
+                                            <td>{{ $paciente->fNac }}</td>
+                                            <td>{{ $paciente->celular }}</td>
+                                            <td>{{ $paciente->genero }}</td>
 
                                             <td>
-                                                <form action="{{ route('pacientes.destroy',$paciente->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('pacientes.show',$paciente->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('pacientes.edit',$paciente->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                <form id="opts" action="{{ route('pacientes.destroy', $paciente->id) }}"
+                                                    method="POST">
+                                                    <a title="show" class="btn btn-sm btn-primary "
+                                                        href="{{ route('pacientes.show', $paciente->id) }}">
+                                                        <i class="fa fa-fw fa-eye"></i></a>
+                                                    <a title="edit" class="btn btn-sm btn-success"
+                                                        href="{{ route('pacientes.edit', $paciente->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button title="delete" type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
@@ -77,3 +83,6 @@
         </div>
     </div>
 @endsection
+
+{{-- @push('scripts')
+@endpush --}}
