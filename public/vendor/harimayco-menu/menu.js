@@ -228,7 +228,7 @@ function createnewmenu() {
       data: {
         menuname: $('#menu-name').val()
       },
-      '{{ route("hgeneratemenucontrol") }}';
+
       url: createnewmenur,
       type: 'POST',
       success: function(response) {
