@@ -48,7 +48,7 @@ class ConsultumController extends Controller
         request()->validate(Consultum::$rules);
         
         $consultum = Consultum::create($request->all());
-        \Log::info($consultum->id);
+        // \Log::info($consultum->id);
         foreach ($request->tratamientos as $tratamiento) {
             # code...
             ConsultaTratamiento::create(['Tratamientoid'=>$tratamiento,'Consultaid'=>($consultum->id)]);

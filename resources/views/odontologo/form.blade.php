@@ -31,7 +31,7 @@
         @endphp
         <div class="form-group">
             {{ Form::label('Email de usuario') }}
-            {{ Form::select('Usuarioid',User::all()->pluck('email'), $odontologo->Usuarioid, ['class' => 'form-control' . ($errors->has('Usuarioid') ? ' is-invalid' : ''), 'placeholder' => 'Usuarioid']) }}
+            {{ Form::select('Usuarioid',User::all()->pluck('email','id'), $odontologo->Usuarioid, ['class' => 'form-control' . ($errors->has('Usuarioid') ? ' is-invalid' : ''), 'placeholder' => 'Usuarioid']) }}
             {!! $errors->first('Usuarioid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
