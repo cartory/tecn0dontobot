@@ -12,13 +12,24 @@
 <canvas id="myChart" width="400" height="400"></canvas>
 <script>
 var ctx = document.getElementById('myChart').getContext('2d');
+var mapeo=<?php echo json_encode( $results, JSON_HEX_TAG); ?> ;
+console.log(mapeo);
+var labelGenero=[];
+var datas=[];
+for (const unMes of mapeo) {
+    labelGenero.push(unMes.genero)
+   datas.push(unMes.count)
+}
+
+// fetch({{url('consultasPorMesJSON')}})
+//   .then(response => console.log(response.json());)
 var myChart = new Chart(ctx, {
-    type: 'bar',
+    type: 'pie',
     data: {
-        labels: ['Enero', 'Febrero', 'Marzo', 'Abril', 'Mayo', 'Junio', 'Julio', 'Agosto', 'Septiembre', 'Octubre', 'Moviembre', 'Diciembre'],
+        labels: labelGenero,
         datasets: [{
-            label: '# of Votes',
-            data: [12, 19, 3, 5, 2, 3],
+            label: labelGenero,
+            data: datas,
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
                 'rgba(54, 162, 235, 0.2)',

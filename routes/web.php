@@ -36,7 +36,11 @@ Route::group(['middleware' => ['auth']], function() {
     Route::prefix('admin')->group(function() {
         Route::get('recet/createFromConsulta/{consultaSeleccionadaId}', [RecetumController::class, 'createFromConsulta'])->name('recetacreateFromConsulta');
         Route::get('recet/verFromConsulta/{consultaSeleccionadaId}', [RecetumController::class, 'verFromConsulta'])->name('receta.showDeConsulta');
-        Route::get('reporte/GenerosPorMes', [ReporteController::class, 'GenerosPorMes'])->name('rep.GenerosPorMes');
+        Route::get('reporte/ConsultasPorMes', [ReporteController::class, 'ConsultasPorMes'])->name('rep.ConsultasPorMes');
+        Route::get('reporte/generosDePaciente', [ReporteController::class, 'generosDePaciente'])->name('rep.generosDePaciente');
+        Route::get('reporte/consultasPorTratamiento', [ReporteController::class, 'consultasPorTratamiento'])->name('rep.consultasPorTratamiento');
+        Route::get('reporte/consultasPorPaciente', [ReporteController::class, 'consultasPorPaciente'])->name('rep.consultasPorPaciente');
+        Route::get('reporte/consultasPorMesJSON', [ReporteController::class, 'consultasPorMesJSON'])->name('rep.ConsultasPorMes');
 
         Route::resource('citas', CitumController::class);
         Route::resource('receta', RecetumController::class);
