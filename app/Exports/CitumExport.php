@@ -30,11 +30,12 @@ class CitumExport implements FromCollection, ShouldAutoSize, WithHeadings, WithC
     public function columnWidths(): array {
         return [
             'A' => 5,
-            'B' => 15,
-            'C' => 20,
-            'D' => 10,
-            'E' => 15,
-            'F' => 7,
+            
+            'B' => 10,
+            'C' => 10,
+            'D' => 5,
+            'E' => 5,
+
             'G' => 25,
             'H' => 25,
             'I' => 25,
