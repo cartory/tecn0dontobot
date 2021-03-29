@@ -44,6 +44,6 @@ class RecetumExport implements FromCollection, ShouldAutoSize, WithHeadings, Wit
     }
 
     public function styles(Worksheet $sheet) {
-        $sheet->getStyle('A1:I1')->getFont()->setSize(13);
+        $sheet->getStyle('A1:H1')->getFont()->setSize(13);
     }
 }

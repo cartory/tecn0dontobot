@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Recetum;
 use Illuminate\Http\Request;
 
+use App\Exports\RecetumExport;
+use Maatwebsite\Excel\Facades\Excel;
 /**
  * Class RecetumController
  * @package App\Http\Controllers
  */
 class RecetumController extends Controller
 {
+    public function export() {
+        return Excel::download(new RecetumExport(), 'recetas.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *

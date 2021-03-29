@@ -36,13 +36,13 @@ class CitumExport implements FromCollection, ShouldAutoSize, WithHeadings, WithC
             'D' => 5,
             'E' => 5,
 
+            'F' => 25,
             'G' => 25,
             'H' => 25,
-            'I' => 25,
         ];
     }
 
     public function styles(Worksheet $sheet) {
-        $sheet->getStyle('A1:I1')->getFont()->setSize(13);
+        $sheet->getStyle('A1:H1')->getFont()->setSize(13);
     }
 }
