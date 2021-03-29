@@ -54,11 +54,17 @@
 
                                             <td>
                                                 <form action="{{ route('agendas.destroy',$agenda->id) }}" method="POST">
-                                                    <a class="btn btn-sm btn-primary " href="{{ route('agendas.show',$agenda->id) }}"><i class="fa fa-fw fa-eye"></i> Show</a>
-                                                    <a class="btn btn-sm btn-success" href="{{ route('agendas.edit',$agenda->id) }}"><i class="fa fa-fw fa-edit"></i> Edit</a>
+                                                    <a 
+                                                        title="show"
+                                                    class="btn btn-sm btn-primary " href="{{ route('agendas.show',$agenda->id) }}"><i class="fa fa-fw fa-eye"></i></a>
+                                                    <a 
+                                                        title="edit"
+                                                    class="btn btn-sm btn-success" href="{{ route('agendas.edit',$agenda->id) }}"><i class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i> Delete</button>
+                                                    <button 
+                                                        title="delete"
+                                                    type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>
