@@ -138,13 +138,13 @@ $citaCont=new CitumController()
       </div>
         <div class="form-group">
             {{ Form::label('Paciente') }}
-            {{ Form::select('Pacienteid' ,Paciente::all()->pluck('nombre','id'),Paciente::all()->pluck('id'), ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione paciente']) }}
+            {{ Form::select('Pacienteid' ,Paciente::all()->pluck('nombre','id'),$citum->Pacienteid, ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione paciente']) }}
             {!! $errors->first('Pacienteid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
         <div class="form-group">
             {{ Form::label('Agenda') }}
-            {{ Form::select('Agendaid',Agenda::all()->pluck('nombre','id'),Agenda::all()->pluck('id'), ['class' => 'form-control' . ($errors->has('Agendaid') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona agenda']) }}
+            {{ Form::select('Agendaid',Agenda::all()->pluck('nombre','id'),$citum->Agendaid, ['class' => 'form-control' . ($errors->has('Agendaid') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona agenda']) }}
             {!! $errors->first('Agendaid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 
