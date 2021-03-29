@@ -5,12 +5,20 @@ namespace App\Http\Controllers;
 use App\Models\Especialidad;
 use Illuminate\Http\Request;
 
+use App\Exports\EspecialidadExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 /**
  * Class EspecialidadController
  * @package App\Http\Controllers
  */
 class EspecialidadController extends Controller
 {
+
+    public function export() {
+        return Excel::download(new EspecialidadExport(), 'especialidades.xlsx');
+    }
+    
     /**
      * Display a listing of the resource.
      *
