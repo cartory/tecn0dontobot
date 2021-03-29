@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
 /**
  * Class Tratamiento
  *
@@ -35,8 +36,10 @@ class Tratamiento extends Model
      * @var array
      */
     protected $fillable = ['nombre','Especialidadid'];
-
-
+    
+    public static function columns(): array {
+        return Schema::getColumnListing('Tratamiento');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */

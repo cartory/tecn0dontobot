@@ -5,12 +5,17 @@ namespace App\Http\Controllers;
 use App\Models\Tratamiento;
 use Illuminate\Http\Request;
 
+use App\Exports\TratamientoExport;
+use Maatwebsite\Excel\Facades\Excel;
 /**
  * Class TratamientoController
  * @package App\Http\Controllers
  */
 class TratamientoController extends Controller
 {
+    public function export() {
+        return Excel::download(new TratamientoExport(), 'tratamientos.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *

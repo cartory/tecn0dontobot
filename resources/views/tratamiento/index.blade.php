@@ -19,14 +19,16 @@
 
                             <div>
                                 <div class="float-right" style="margin-left: 5px">
-                                    <a href="{{ route('tratamientos.create') }}" class="btn btn-primary btn-sm float-right"
-                                        data-placement="left">
+                                    <a href="{{ route('tratamientos.create') }}"
+                                        class="btn btn-primary btn-sm float-right" data-placement="left">
                                         {{ __('Crear Nueva') }}
                                     </a>
                                 </div>
                                 <div class="float-right">
-                                    <a href="{{ url('api/excel/citas') }}" class="btn btn-success btn-sm float-right"
-                                        data-placement="left">
+                                    <a href="{{ url('api/excel/tratamientos') }}" class="btn btn-success btn-sm float-right"
+                                        data-placement="left"
+                                        download
+                                    >
                                         📊 Excel
                                     </a>
                                 </div>

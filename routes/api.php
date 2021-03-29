@@ -10,6 +10,7 @@ use App\Http\Controllers\RecetumController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\ConsultumController;
 use App\Http\Controllers\OdontologoController;
+use App\Http\Controllers\TratamientoController;
 use App\Http\Controllers\EspecialidadController;
 /*
 |--------------------------------------------------------------------------
@@ -42,5 +43,6 @@ Route::prefix('excel')->group(function() {
     Route::get('pacientes', [PacienteController::class, 'export']);
     Route::get('consultas', [ConsultumController::class, 'export']);
     Route::get('odontologos', [OdontologoController::class, 'export']);
+    Route::get('tratamientos', [TratamientoController::class, 'export']);
     Route::get('especialidades', [EspecialidadController::class, 'export']);
 });
