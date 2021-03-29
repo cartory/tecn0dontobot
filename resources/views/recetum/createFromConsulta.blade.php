@@ -38,7 +38,8 @@
                                         {!! $errors->first('fecha', '<div class="invalid-feedback">:message</p>') !!}
                                     </div>
                                     <div d class="form-group">
-                                        <input class="form-control" value="{{$consultaSeleccionadaId}}" type="text">
+                                         {{ Form::label('Codigo de consulta') }}
+                                        <input disabled class="form-control" value="{{$consultaSeleccionadaId}}" type="text">
                                         {{-- {{ Form::label('Consultaid') }}
                                         {{ Form::text('Consultaid', $recetum->Consultaid, ['class' => 'form-control' . ($errors->has('Consultaid') ? ' is-invalid' : ''), 'placeholder' => 'Consultaid']) }}
                                         {!! $errors->first('Consultaid', '<div class="invalid-feedback">:message</p>') !!} --}}

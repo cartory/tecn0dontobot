@@ -154,15 +154,47 @@
                     </div>
                 </div>
             </nav>
-        {{-- @endif --}}
-        <div class="row ">
-            <div class="col-3 bg-white "> @include('sidebar.sidebar')</div>
-            <main class=" col-9">
-                @yield('content')
-            </main>
-        </div>
+        @endif
+       <div class="row ">
+        <div class="col-3 card bg-light">  @include('sidebar.sidebar')</div>
+
+        <main class=" col-9" >
+
+            @yield('content')
+        </main>
+       </div>
+       <footer  >
+           @php
+                use Harimayco\Menu\Models\MenuItems;
+               $routeNow =request()->path();
+               $visitasActuales=MenuItems::where('link','/'.$routeNow)->pluck('visitas')->first();
+               if($visitasActuales!=[]){
+                   $visitaNueva=$visitasActuales+1;
+                   $vista=MenuItems::where('link','/'.$routeNow)->first();
+                  
+                   $vista->visitas=$visitaNueva;
+                   
+                   $vista->save();
+               }
+           @endphp
+           @if ($visitasActuales!=[])
+           <span class="badge badge-secondary">Numero de Visitas : {{$visitasActuales}}</span>  
+           @endif
+       
+    </footer>  
     </div>
-    @stack('scripts')
+    
 </body>
+@stack('scripts')
+<style>
+    #footer {
+   position:fixed;
+   left:0px;
+   bottom:0px;
+   height:30px;
+   width:100%;
+   background:#999;
+}
+</style>
 
 </html>

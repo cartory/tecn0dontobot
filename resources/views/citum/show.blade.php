@@ -14,7 +14,7 @@
                             <span class="card-title">Show Citum</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('citas.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('citas.index') }}"> Atras</a>
                         </div>
                     </div>
 

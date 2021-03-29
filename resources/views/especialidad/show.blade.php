@@ -14,7 +14,7 @@
                             <span class="card-title">Show Especialidad</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('especialidades.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('especialidades.index') }}"> Volver</a>
                         </div>
                     </div>
 

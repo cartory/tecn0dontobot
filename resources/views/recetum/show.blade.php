@@ -14,7 +14,7 @@
                             <span class="card-title">Show Recetum</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('receta.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('receta.index') }}"> Volver</a>
                         </div>
                     </div>
 

@@ -45,7 +45,27 @@ class RecetumController extends Controller
         $recetum = new Recetum();
         return view('recetum.create', compact('recetum'));
     }
+/**
+     * id  de la consulta
+     */
+    public function createFromConsulta($consultaSeleccionadaId)
+    {
+        $recetum = new Recetum();
+        
+        return view('recetum.createFromConsulta', compact(['consultaSeleccionadaId','recetum']));
+        
+    }
+/**
+     * id  de la consulta
+     */
+    public function verFromConsulta($consultaSeleccionadaId)
+    {
+       
+        $recetum = Recetum::where('Consultaid',$consultaSeleccionadaId)->first();
 
+        return view('recetum.show', compact(['recetum']));
+        
+    }
     /**
      * Store a newly created resource in storage.
      *

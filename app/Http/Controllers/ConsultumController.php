@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\ConsultaTratamiento;
 use App\Models\Consultum;
+use App\Models\Tratamiento;
 use Illuminate\Http\Request;
 
 /**
@@ -46,13 +47,7 @@ class ConsultumController extends Controller
         $consultum = new Consultum();
         return view('consultum.create', compact('consultum'));
     }
-    /**
-     * id  de la consulta
-     */
-    public function createFromConsulta($consultaSeleccionadaId)
-    {
-        return view('consultum.createFromConsulta', compact('consultaSeleccionadaId'));
-    }
+    
     /**
      * Store a newly created resource in storage.
      *
@@ -64,7 +59,7 @@ class ConsultumController extends Controller
         request()->validate(Consultum::$rules);
 
         $consultum = Consultum::create($request->all());
-        \Log::info($consultum->id);
+        // \Log::info($consultum->id);
         foreach ($request->tratamientos as $tratamiento) {
             # code...
             ConsultaTratamiento::create(['Tratamientoid'=>$tratamiento,'Consultaid'=>($consultum->id)]);
@@ -83,8 +78,9 @@ class ConsultumController extends Controller
     public function show($id)
     {
         $consultum = Consultum::find($id);
-
-        return view('consultum.show', compact('consultum'));
+        $consultaTratamiento=ConsultaTratamiento::where('Consultaid',$id)->get()->pluck('Tratamientoid');
+        $tratamientosRealizados=Tratamiento::whereIn('id',$consultaTratamiento)->get();
+        return view('consultum.show', compact('consultum','tratamientosRealizados'));
     }
 
     /**
