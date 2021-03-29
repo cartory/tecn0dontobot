@@ -64,7 +64,34 @@
 
 <body style="overflow: scroll">
     <div id="app" class="container">
+        <form method="GET" >
 
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+
+                        <input type="text" name="search" class="form-control" placeholder="Ingrese el termino a buscar" value="{{ old('search') }}">
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+
+                        <button class="btn btn-success">Buscar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">
                     <a class="navbar-brand" href="{{ url('/') }}">
