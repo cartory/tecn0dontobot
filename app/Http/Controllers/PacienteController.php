@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 
+use App\Exports\PacienteExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 /**
  * Class PacienteController
  * @package App\Http\Controllers
  */
 class PacienteController extends Controller
 {
+    public function export() {
+        return Excel::download(new PacienteExport(), 'pacientes.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *
