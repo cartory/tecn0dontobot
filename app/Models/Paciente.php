@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
@@ -47,6 +48,9 @@ class Paciente extends Model
      */
     protected $fillable = ['ci','nombre','fNac','celular','genero'];
 
+    public static function columns(): array {
+      return Schema::getColumnListing('Paciente');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -55,6 +59,9 @@ class Paciente extends Model
     {
         return $this->hasMany('App\Models\Citum', 'Pacienteid', 'id');
     }
+<<<<<<< HEAD
+=======
 
 
+>>>>>>> 520fd3a54a9d1e7c205876ea340fce50b42ee093
 }

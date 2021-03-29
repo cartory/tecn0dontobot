@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Laravel\Scout\Searchable;
@@ -39,6 +40,9 @@ class Especialidad extends Model
      */
     protected $fillable = ['nombre'];
 
+    public static function columns(): array {
+        return Schema::getColumnListing('Especialidad');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

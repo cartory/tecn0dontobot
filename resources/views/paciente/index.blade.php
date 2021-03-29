@@ -11,15 +11,32 @@
                 <div class="card">
                     <div class="card-header">
                         <div style="display: flex; justify-content: space-between; align-items: center;">
-
                             <span id="card_title">
                                 {{ __('Paciente') }}
                             </span>
 
+<<<<<<< HEAD
+                            <div>
+                                <div class="float-right" style="margin-left: 5px">
+                                    <a href="{{ route('pacientes.create') }}" class="btn btn-primary btn-sm float-right"
+                                        data-placement="left">
+                                        {{ __('Create New') }}
+                                    </a>
+                                </div>
+                                <div class="float-right">
+                                    <a href="{{ url('api/excel/pacientes')}}" class="btn btn-success btn-sm float-right"
+                                        data-placement="left"
+                                        download
+                                    >
+                                        📊 Excel
+                                    </a>
+                                </div>
+=======
                              <div class="float-right">
                                 <a href="{{ route('pacientes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
                                   {{ __('Crear Nueva') }}
                                 </a>
+>>>>>>> 520fd3a54a9d1e7c205876ea340fce50b42ee093
                             </div>
                         </div>
                     </div>

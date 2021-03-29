@@ -30,7 +30,7 @@ class CreateMenuItemsWpTable extends Migration
 
               // Roles (puesto a mano)
               $table->bigInteger('role_id')->nullable();
-              $table->foreign('role_id')->references('id')->on('roles')
+              $table->foreign('role_id')->references('id')->on('Role')
               ->onDelete('cascade')
               ->onUpdate('cascade');
         });
