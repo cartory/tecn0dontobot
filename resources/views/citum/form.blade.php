@@ -10,7 +10,7 @@ $citaCont=new CitumController()
     document.addEventListener('DOMContentLoaded', function() {
         // Evento de prueba
      var events=[  ]
-  var citas=<?php echo json_encode( $citaCont->getAll(Auth::user()->id), JSON_HEX_TAG); ?>
+  var citas=<?php echo json_encode( $citaCont->getAll(Auth::user()->id), JSON_HEX_TAG); ?>;
   citas=JSON.parse(citas)
   console.log(citas);
   for (const cita of citas) {
