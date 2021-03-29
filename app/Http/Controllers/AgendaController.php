@@ -7,12 +7,17 @@ use App\Models\Odontologo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Exports\AgendaExport;
+use Maatwebsite\Excel\Facades\Excel;
 /**
  * Class AgendaController
  * @package App\Http\Controllers
  */
 class AgendaController extends Controller
 {
+    public function export() {
+        return Excel::download(new AgendaExport(), 'agenda.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *

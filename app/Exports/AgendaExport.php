@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Paciente;
+use App\Models\Agenda;
 
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
@@ -13,18 +13,18 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 
-class PacienteExport implements FromCollection, ShouldAutoSize, WithHeadings, WithColumnWidths, WithStyles
+class AgendaExport implements FromCollection, ShouldAutoSize, WithHeadings, WithColumnWidths, WithStyles
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Paciente::all();
+        return Agenda::all();
     }
 
     public function headings(): array {
-        return Paciente::columns();
+        return Agenda::columns();
     }
 
     public function columnWidths(): array {
