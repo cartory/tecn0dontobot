@@ -24,7 +24,9 @@
                                 </div>
                                 <div class="float-right">
                                     <a href="{{ url('api/excel/odontologos') }}" class="btn btn-success btn-sm float-right" 
-                                        data-placement="left">
+                                        data-placement="left"
+                                        download
+                                    >
                                         📊 Excel
                                     </a>
                                 </div>

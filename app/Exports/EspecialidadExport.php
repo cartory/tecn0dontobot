@@ -30,7 +30,9 @@ class EspecialidadExport implements FromCollection, ShouldAutoSize, WithHeadings
     public function columnWidths(): array {
         return [
             'A' => 5,
+            
             'B' => 15,
+
             'C' => 25,
             'D' => 25,
             'E' => 25,

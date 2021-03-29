@@ -30,14 +30,16 @@ class RecetumExport implements FromCollection, ShouldAutoSize, WithHeadings, Wit
     public function columnWidths(): array {
         return [
             'A' => 5,
-            'B' => 15,
+
+            'B' => 10,
             'C' => 20,
-            'D' => 10,
-            'E' => 15,
-            'F' => 7,
+
+            'D' => 25,
+            'E' => 5,
+
+            'F' => 25,
             'G' => 25,
             'H' => 25,
-            'I' => 25,
         ];
     }
 
