@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
 /**
  * Class Consultum
  *
@@ -35,8 +36,10 @@ class Consultum extends Model
      * @var array
      */
     protected $fillable = ['fechaEmision','Citaid'];
-
-
+    
+    public static function columns(): array {
+        return Schema::getColumnListing('Consulta');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -60,6 +63,4 @@ class Consultum extends Model
     {
         return $this->hasMany('App\Models\Recetum', 'Consultaid', 'id');
     }
-
-
 }

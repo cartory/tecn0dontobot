@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ConsultaTratamiento;
 use App\Models\Consultum;
 use App\Models\Tratamiento;
 use Illuminate\Http\Request;
+use App\Models\ConsultaTratamiento;
+
+use App\Exports\ConsultumExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 /**
  * Class ConsultumController
@@ -13,6 +16,9 @@ use Illuminate\Http\Request;
  */
 class ConsultumController extends Controller
 {
+    public function export() {
+        return Excel::download(new ConsultumExport(), 'consultas.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *
