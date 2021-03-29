@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\CitumController;
 use App\Http\Controllers\AgendaController;
+use App\Http\Controllers\RecetumController;
 use App\Http\Controllers\PacienteController;
 use App\Http\Controllers\ConsultumController;
 use App\Http\Controllers\OdontologoController;
@@ -37,6 +38,7 @@ Route::post('theme', function(Request $request) {
 Route::prefix('excel')->group(function() {
     Route::get('citas', [CitumController::class, 'export']);
     Route::get('agendas', [AgendaController::class, 'export']);
+    Route::get('recetas', [RecetumController::class, 'export']);
     Route::get('pacientes', [PacienteController::class, 'export']);
     Route::get('consultas', [ConsultumController::class, 'export']);
     Route::get('odontologos', [OdontologoController::class, 'export']);

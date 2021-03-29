@@ -2,7 +2,7 @@
 
 namespace App\Exports;
 
-use App\Models\Citum;
+use App\Models\Recetum;
 
 use PhpOffice\PhpSpreadsheet\Style\Border;
 use PhpOffice\PhpSpreadsheet\Worksheet\Worksheet;
@@ -13,18 +13,18 @@ use Maatwebsite\Excel\Concerns\ShouldAutoSize;
 use Maatwebsite\Excel\Concerns\FromCollection;
 use Maatwebsite\Excel\Concerns\WithColumnWidths;
 
-class CitumExport implements FromCollection, ShouldAutoSize, WithHeadings, WithColumnWidths, WithStyles
+class RecetumExport implements FromCollection, ShouldAutoSize, WithHeadings, WithColumnWidths, WithStyles
 {
     /**
     * @return \Illuminate\Support\Collection
     */
     public function collection()
     {
-        return Citum::all();
+        return Recetum::all();
     }
 
     public function headings(): array {
-        return Citum::columns();
+        return Recetum::columns();
     }
 
     public function columnWidths(): array {
