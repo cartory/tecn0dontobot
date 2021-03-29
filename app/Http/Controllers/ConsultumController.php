@@ -47,7 +47,7 @@ class ConsultumController extends Controller
         $consultum = new Consultum();
         return view('consultum.create', compact('consultum'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -92,6 +92,10 @@ class ConsultumController extends Controller
     public function edit($id)
     {
         $consultum = Consultum::find($id);
+
+
+
+        $consultum->fechaEmision = explode(" ",$consultum->fechaEmision)[0];
 
         return view('consultum.edit', compact('consultum'));
     }

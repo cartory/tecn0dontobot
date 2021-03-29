@@ -1,5 +1,5 @@
 @php
-        
+
 use Illuminate\Support\Facades\Auth;
 use \App\Http\Controllers\CitumController;
 $citaCont=new CitumController()
@@ -10,7 +10,7 @@ $citaCont=new CitumController()
     document.addEventListener('DOMContentLoaded', function() {
         // Evento de prueba
      var events=[  ]
-  var citas=<?php echo json_encode( $citaCont->getAll(Auth::user()->id), JSON_HEX_TAG); ?> 
+  var citas=<?php echo json_encode( $citaCont->getAll(Auth::user()->id), JSON_HEX_TAG); ?>
   citas=JSON.parse(citas)
   console.log(citas);
   for (const cita of citas) {
@@ -28,7 +28,7 @@ $citaCont=new CitumController()
   }
   console.log(events);
         let draggableEl = document.getElementById('external-events');
-        var  checkbox = document.getElementById('drop-remove');  
+        var  checkbox = document.getElementById('drop-remove');
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
         events:events,
@@ -48,7 +48,7 @@ $citaCont=new CitumController()
           // if so, remove the element from the "Draggable Events" list
           arg.draggedEl.parentNode.removeChild(arg.draggedEl);
         }
-      },      
+      },
       });
       var Draggable = FullCalendar.Draggable;
       calendar.render();
@@ -71,12 +71,12 @@ $citaCont=new CitumController()
       font-size: 14px;
       font-family: Arial, Helvetica Neue, Helvetica, sans-serif;
     }
-  
+
     #wrap {
       width: 1100px;
       margin: 0 auto;
     }
-  
+
     #external-events {
       float: left;
       width: 150px;
@@ -85,41 +85,41 @@ $citaCont=new CitumController()
       background: #eee;
       text-align: left;
     }
-  
+
     #external-events h4 {
       font-size: 16px;
       margin-top: 0;
       padding-top: 1em;
     }
-  
+
     #external-events .fc-event {
       margin: 10px 0;
       cursor: pointer;
     }
-  
+
     #external-events p {
       margin: 1.5em 0;
       font-size: 11px;
       color: #666;
     }
-  
+
     #external-events p input {
       margin: 0;
       vertical-align: middle;
     }
-  
+
     #calendar {
       float: left;
       width: 100%;
     }
-  
+
   </style>
 <div class="box box-info padding-1">
-    
+
     <div class="box-body">
       @php
-        use App\Models\Paciente; 
-        use App\Models\Agenda; 
+        use App\Models\Paciente;
+        use App\Models\Agenda;
       @endphp
         <div class="form-group">
             {{ Form::label('horaInicio') }}
@@ -133,8 +133,8 @@ $citaCont=new CitumController()
         </div>
         <div class="form-group">
           {{ Form::label('Fecha') }}
-          {{ Form::date('fecha', $citum->horaFin, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'placeholder' => 'fecha de cita']) }}
-          {!! $errors->first('horaFin', '<div class="invalid-feedback">:message</p>') !!}
+          {{ Form::date('fecha', $citum->fecha, ['class' => 'form-control' . ($errors->has('fecha') ? ' is-invalid' : ''), 'placeholder' => 'fecha de cita']) }}
+          {!! $errors->first('fecha', '<div class="invalid-feedback">:message</p>') !!}
       </div>
         <div class="form-group">
             {{ Form::label('Paciente') }}
@@ -157,15 +157,15 @@ $citaCont=new CitumController()
         <p>
           <strong>Draggable Events</strong>
         </p>
-      
+
         <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
           <div class='fc-event-main' data-event='{ "title": "my event", "duration": "05:00" }'>My Event 1</div>
         </div>
         <div class='fc-event fc-h-event fc-daygrid-event fc-daygrid-block-event'>
           <div class='fc-event-main'>My Event 2</div>
         </div>
-     
-      
+
+
         <p>
           <input type='checkbox' id='drop-remove' />
           <label for='drop-remove'>remove after drop</label>

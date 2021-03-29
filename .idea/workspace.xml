@@ -21,11 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="2fd781b8-d60c-4203-ab3b-8d89484af820" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgendaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgendaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Paciente.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Paciente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/paciente/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/paciente/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/recetum/createFromConsulta.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/recetum/createFromConsulta.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConsultumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsultumController.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/citum/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/citum/form.blade.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/consultum/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/consultum/form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -179,12 +177,12 @@
     <property name="ts.external.directory.path" value="C:\Program Files\JetBrains\PhpStorm 2020.1.4\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\Asus\Documents\Proyectos Uni\Tecno\tecn0dontobot\resources\js" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Asus\Documents\Proyectos Uni\Tecno\tecn0dontobot\public\css\temas" />
       <recent name="C:\Users\Asus\Documents\Proyectos Uni\Tecno\tecn0dontobot\public\js" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\Asus\Documents\Proyectos Uni\Tecno\tecn0dontobot\resources\js" />
     </key>
   </component>
   <component name="RunManager">
@@ -208,7 +206,7 @@
       <workItem from="1616827193506" duration="13000" />
       <workItem from="1616880660128" duration="1589000" />
       <workItem from="1616886996294" duration="15405000" />
-      <workItem from="1616959014994" duration="31327000" />
+      <workItem from="1616959014994" duration="33272000" />
     </task>
     <servers />
   </component>
@@ -252,6 +250,14 @@
       <screen x="0" y="0" width="1536" height="824" />
     </state>
     <state width="1493" height="211" key="GridCell.Tab.0.right/0.0.1536.824@0.0.1536.824" timestamp="1616942258985" />
+    <state x="130" y="50" key="MergeDialog" timestamp="1616998566572">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="130" y="50" key="MergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1616998566572" />
+    <state x="409" y="175" key="MultipleFileMergeDialog" timestamp="1616998568548">
+      <screen x="0" y="0" width="1536" height="824" />
+    </state>
+    <state x="409" y="175" key="MultipleFileMergeDialog/0.0.1536.824@0.0.1536.824" timestamp="1616998568548" />
     <state x="477" y="145" width="582" height="534" key="find.popup" timestamp="1616995703460">
       <screen x="0" y="0" width="1536" height="824" />
     </state>
