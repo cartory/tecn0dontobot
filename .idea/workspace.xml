@@ -20,34 +20,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2fd781b8-d60c-4203-ab3b-8d89484af820" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/php.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/php.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/AgendaController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/AgendaController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/CitumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/CitumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/ConsultumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/ConsultumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/EspecialidadController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/EspecialidadController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/OdontologoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/OdontologoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/PacienteController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/PacienteController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/RecetumController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/RecetumController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/TratamientoController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/TratamientoController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Http/Controllers/UsuarioController.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Http/Controllers/UsuarioController.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Agenda.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Agenda.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Citum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Citum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/ConsultaTratamiento.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/ConsultaTratamiento.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Consultum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Consultum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Especialidad.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Especialidad.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Odontologo.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Odontologo.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Paciente.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Paciente.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Recetum.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Recetum.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/Tratamiento.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/Tratamiento.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/Models/User.php" beforeDir="false" afterPath="$PROJECT_DIR$/app/Models/User.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.json" beforeDir="false" afterPath="$PROJECT_DIR$/composer.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/composer.lock" beforeDir="false" afterPath="$PROJECT_DIR$/composer.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/config/app.php" beforeDir="false" afterPath="$PROJECT_DIR$/config/app.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/especialidad/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/especialidad/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/layouts/app.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/tratamiento/index.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/tratamiento/index.blade.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/routes/web.php" beforeDir="false" afterPath="$PROJECT_DIR$/routes/web.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/resources/views/odontologo/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/odontologo/form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -222,7 +196,7 @@
       <workItem from="1616827193506" duration="13000" />
       <workItem from="1616880660128" duration="1589000" />
       <workItem from="1616886996294" duration="15405000" />
-      <workItem from="1616959014994" duration="22846000" />
+      <workItem from="1616959014994" duration="24096000" />
     </task>
     <servers />
   </component>
