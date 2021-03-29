@@ -34,13 +34,13 @@ class ConsultumExport implements FromCollection, ShouldAutoSize, WithHeadings, W
             'B' => 25,
             'C' => 7,
             
-            'G' => 25,
-            'H' => 25,
-            'I' => 25,
+            'D' => 25,
+            'E' => 25,
+            'F' => 25,
         ];
     }
 
     public function styles(Worksheet $sheet) {
-        $sheet->getStyle('A1:I1')->getFont()->setSize(13);
+        $sheet->getStyle('A1:F1')->getFont()->setSize(13);
     }
 }

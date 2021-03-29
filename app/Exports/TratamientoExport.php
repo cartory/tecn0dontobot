@@ -30,18 +30,17 @@ class TratamientoExport implements FromCollection, ShouldAutoSize, WithHeadings,
     public function columnWidths(): array {
         return [
             'A' => 5,
+
             'B' => 15,
-            'C' => 20,
-            'D' => 10,
-            'E' => 15,
-            'F' => 7,
-            'G' => 25,
-            'H' => 25,
-            'I' => 25,
+            'C' => 10,
+
+            'D' => 25,
+            'E' => 25,
+            'F' => 25,
         ];
     }
 
     public function styles(Worksheet $sheet) {
-        $sheet->getStyle('A1:I1')->getFont()->setSize(13);
+        $sheet->getStyle('A1:F1')->getFont()->setSize(13);
     }
 }
