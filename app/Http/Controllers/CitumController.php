@@ -2,17 +2,23 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agenda;
 use App\Models\Citum;
+use App\Models\Agenda;
 use App\Models\Odontologo;
 use Illuminate\Http\Request;
 
+use App\Exports\CitumExport;
+use Maatwebsite\Excel\Facades\Excel;
 /**
  * Class CitumController
  * @package App\Http\Controllers
  */
 class CitumController extends Controller
 {
+    public function export() {
+        return Excel::download(new CitumExport(), 'citas.xlsx');
+    }
+
     public function getAll($userId){
 
 

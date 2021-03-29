@@ -17,11 +17,21 @@
                                 {{ __('Tratamiento') }}
                             </span>
 
-                             <div class="float-right">
-                                <a href="{{ route('tratamientos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Nueva') }}
-                                </a>
-                              </div>
+                            <div>
+                                <div class="float-right" style="margin-left: 5px">
+                                    <a href="{{ route('tratamientos.create') }}" class="btn btn-primary btn-sm float-right"
+                                        data-placement="left">
+                                        {{ __('Crear Nueva') }}
+                                    </a>
+                                </div>
+                                <div class="float-right">
+                                    <a href="{{ url('api/excel/citas') }}" class="btn btn-success btn-sm float-right"
+                                        data-placement="left">
+                                        📊 Excel
+                                    </a>
+                                </div>
+
+                            </div>
                         </div>
                     </div>
                     @if ($message = Session::get('success'))
@@ -37,8 +47,8 @@
                                     <tr>
                                         <th>No</th>
 
-										<th>Nombre</th>
-										<th>Especialidadid</th>
+                                        <th>Nombre</th>
+                                        <th>Especialidadid</th>
 
                                         <th></th>
                                     </tr>
@@ -48,22 +58,22 @@
                                         <tr>
                                             <td>{{ ++$i }}</td>
 
-											<td>{{ $tratamiento->nombre }}</td>
-											<td>{{ $tratamiento->Especialidadid }}</td>
+                                            <td>{{ $tratamiento->nombre }}</td>
+                                            <td>{{ $tratamiento->Especialidadid }}</td>
 
                                             <td>
-                                                <form action="{{ route('tratamientos.destroy',$tratamiento->id) }}" method="POST">
-                                                    <a 
-                                                        title="show"
-                                                    class="btn btn-sm btn-primary " href="{{ route('tratamientos.show',$tratamiento->id) }}"><i class="fa fa-fw fa-eye"></i></a>
-                                                    <a 
-                                                        title="edit"
-                                                    class="btn btn-sm btn-success" href="{{ route('tratamientos.edit',$tratamiento->id) }}"><i class="fa fa-fw fa-edit"></i></a>
+                                                <form action="{{ route('tratamientos.destroy', $tratamiento->id) }}"
+                                                    method="POST">
+                                                    <a title="show" class="btn btn-sm btn-primary "
+                                                        href="{{ route('tratamientos.show', $tratamiento->id) }}"><i
+                                                            class="fa fa-fw fa-eye"></i></a>
+                                                    <a title="edit" class="btn btn-sm btn-success"
+                                                        href="{{ route('tratamientos.edit', $tratamiento->id) }}"><i
+                                                            class="fa fa-fw fa-edit"></i></a>
                                                     @csrf
                                                     @method('DELETE')
-                                                    <button 
-                                                        title="delete"
-                                                    type="submit" class="btn btn-danger btn-sm"><i class="fa fa-fw fa-trash"></i></button>
+                                                    <button title="delete" type="submit" class="btn btn-danger btn-sm"><i
+                                                            class="fa fa-fw fa-trash"></i></button>
                                                 </form>
                                             </td>
                                         </tr>

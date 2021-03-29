@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
 /**
  * Class Citum
  *
@@ -44,7 +45,9 @@ class Citum extends Model
      */
     protected $fillable = ['horaInicio','horaFin','fecha','Pacienteid','Agendaid'];
 
-
+    public static function columns(): array {
+        return Schema::getColumnListing('Cita');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
