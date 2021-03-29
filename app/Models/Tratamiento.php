@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Laravel\Scout\Searchable;
 /**
  * Class Tratamiento
  *
@@ -19,8 +19,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Tratamiento extends Model
 {
-    use SoftDeletes;
-    
+    use SoftDeletes, Searchable;
+
     static $rules = [
 		'nombre' => 'required',
 		'Especialidadid' => 'required',
@@ -44,7 +44,7 @@ class Tratamiento extends Model
     {
         return $this->hasMany('App\Models\ConsultaTratamiento', 'Tratamientoid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -52,6 +52,6 @@ class Tratamiento extends Model
     {
         return $this->hasOne('App\Models\Especialidad', 'id', 'Especialidadid');
     }
-    
+
 
 }

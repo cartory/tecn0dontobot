@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Laravel\Scout\Searchable;
 /**
  * Class Consultum
  *
@@ -20,8 +20,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Consultum extends Model
 {
-    use SoftDeletes;
-    
+    use SoftDeletes,Searchable;
+
     static $rules = [
 		'fechaEmision' => 'required',
 		'Citaid' => 'required',
@@ -44,7 +44,7 @@ class Consultum extends Model
     {
         return $this->hasOne('App\Models\Citum', 'id', 'Citaid');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -52,7 +52,7 @@ class Consultum extends Model
     {
         return $this->hasOne('App\Models\ConsultaTratamiento', 'Consultaid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -60,6 +60,6 @@ class Consultum extends Model
     {
         return $this->hasMany('App\Models\Recetum', 'Consultaid', 'id');
     }
-    
+
 
 }

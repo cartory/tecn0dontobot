@@ -16,9 +16,22 @@ class TratamientoController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $tratamientos = Tratamiento::paginate();
+
+        if($request->has('search')){
+
+            $tratamientos = Tratamiento::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $tratamientos = Tratamiento::paginate(6);
+
+        }
+
+        //$tratamientos = Tratamiento::paginate();
 
         return view('tratamiento.index', compact('tratamientos'))
             ->with('i', (request()->input('page', 1) - 1) * $tratamientos->perPage());
@@ -105,5 +118,10 @@ class TratamientoController extends Controller
 
         return redirect()->route('tratamientos.index')
             ->with('success', 'Tratamiento deleted successfully');
+    }
+
+    public function search($searchKey){
+        $trats = Tratamiento::search($searchKey)->get();
+        return compact($trats);
     }
 }

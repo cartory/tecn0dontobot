@@ -1,9 +1,13 @@
 @extends('layouts.app')
 
 @section('template_title')
-    Citum
+    Citas
 @endsection
-
+@php
+        use App\Models\Paciente; 
+        use App\Models\Agenda; 
+    
+@endphp
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -13,12 +17,12 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Citum') }}
+                                {{ __('Citas') }}
                             </span>
 
                              <div class="float-right">
                                 <a href="{{ route('citas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nueva') }}
                                 </a>
                               </div>
                         </div>
@@ -39,7 +43,7 @@
 										<th>Horainicio</th>
 										<th>Horafin</th>
                                         <th>fecha</th>
-										<th>Pacienteid</th>
+										<th>Paciente</th>
 										<th>Agendaid</th>
 
                                         <th></th>
@@ -53,8 +57,8 @@
 											<td>{{ $citum->horaInicio }}</td>
 											<td>{{ $citum->horaFin }}</td>
 											<td>{{ $citum->fecha }}</td>
-											<td>{{ $citum->Pacienteid }}</td>
-											<td>{{ $citum->Agendaid }}</td>
+											<td>{{Paciente::where('id', $citum->Pacienteid)->pluck('nombre')->first() }}</td>
+											<td>{{Agenda::where('id', $citum->Agendaid)->pluck('nombre')->first() }}</td>
 
                                             <td>
                                                 <form action="{{ route('citas.destroy',$citum->id) }}" method="POST">

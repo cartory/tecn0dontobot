@@ -4,7 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Laravel\Scout\Searchable;
 /**
  * Class Odontologo
  *
@@ -24,7 +24,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Odontologo extends Model
 {
-    
+    use Searchable;
+
     static $rules = [
 		'ci' => 'required',
 		'nombre' => 'required',
@@ -51,7 +52,7 @@ class Odontologo extends Model
     {
         return $this->hasMany('App\Models\Agenda', 'Odontologoid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -59,7 +60,7 @@ class Odontologo extends Model
     {
         return $this->hasOne('App\Models\OdontologoEspecialidad', 'Odontologoid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -67,6 +68,6 @@ class Odontologo extends Model
     {
         return $this->hasOne('App\Models\Usuario', 'id', 'Usuarioid');
     }
-    
+
 
 }

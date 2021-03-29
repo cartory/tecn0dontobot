@@ -3,7 +3,9 @@
 @section('template_title')
     Agenda
 @endsection
-
+@php
+    use \App\Models\Odontologo;
+@endphp
 @section('content')
     <div class="container-fluid">
         <div class="row">
@@ -18,7 +20,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('agendas.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nueva') }}
                                 </a>
                               </div>
                         </div>
@@ -37,7 +39,7 @@
                                         <th>No</th>
                                         
 										<th>Nombre</th>
-										<th>Odontologoid</th>
+										<th>Odontologo</th>
 
                                         <th></th>
                                     </tr>
@@ -48,7 +50,7 @@
                                             <td>{{ ++$i }}</td>
                                             
 											<td>{{ $agenda->nombre }}</td>
-											<td>{{ $agenda->Odontologoid }}</td>
+											<td>{{Odontologo::where('id', $agenda->Odontologoid)->pluck('nombre')->first() }}</td>
 
                                             <td>
                                                 <form action="{{ route('agendas.destroy',$agenda->id) }}" method="POST">

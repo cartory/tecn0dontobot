@@ -27,7 +27,7 @@
             
             {!! $errors->first('genero', '<div class="invalid-feedback">:message</p>') !!}
         </div>
-
+        
     </div>
     <div class="box-footer mt20">
         <button type="submit" class="btn btn-primary">Submit</button>

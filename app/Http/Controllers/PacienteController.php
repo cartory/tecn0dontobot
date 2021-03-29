@@ -22,9 +22,20 @@ class PacienteController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pacientes = Paciente::paginate();
+
+        if($request->has('search')){
+
+            $pacientes = Paciente::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $pacientes = Paciente::paginate(6);
+
+        }
 
         return view('paciente.index', compact('pacientes'))
             ->with('i', (request()->input('page', 1) - 1) * $pacientes->perPage());

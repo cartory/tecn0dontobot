@@ -4,6 +4,7 @@ namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
+use Laravel\Scout\Searchable;
 /**
  * Class Recetum
  *
@@ -19,7 +20,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Recetum extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Searchable;
 
     static $rules = [
 		'titulo' => 'required',
@@ -43,6 +44,6 @@ class Recetum extends Model
     {
         return $this->hasOne('App\Models\Consultum', 'id', 'Consultaid');
     }
-    
+
 
 }

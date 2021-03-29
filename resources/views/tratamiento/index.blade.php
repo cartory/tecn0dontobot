@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -18,7 +19,7 @@
 
                              <div class="float-right">
                                 <a href="{{ route('tratamientos.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Create New') }}
+                                  {{ __('Crear Nueva') }}
                                 </a>
                               </div>
                         </div>
@@ -35,7 +36,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Nombre</th>
 										<th>Especialidadid</th>
 
@@ -46,7 +47,7 @@
                                     @foreach ($tratamientos as $tratamiento)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $tratamiento->nombre }}</td>
 											<td>{{ $tratamiento->Especialidadid }}</td>
 

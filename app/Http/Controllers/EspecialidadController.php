@@ -24,9 +24,20 @@ class EspecialidadController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $especialidads = Especialidad::paginate();
+
+        if($request->has('search')){
+
+            $especialidads = Especialidad::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $especialidads = Especialidad::paginate(6);
+
+        }
 
         return view('especialidad.index', compact('especialidads'))
             ->with('i', (request()->input('page', 1) - 1) * $especialidads->perPage());
@@ -113,5 +124,13 @@ class EspecialidadController extends Controller
 
         return redirect()->route('especialidades.index')
             ->with('success', 'Especialidad deleted successfully');
+    }
+
+    public function search()
+    {
+        // queries to Algolia search index and returns matched records as Eloquent Models
+        $espe = Especialidad::search('title')->get();
+
+        dd($espe);
     }
 }

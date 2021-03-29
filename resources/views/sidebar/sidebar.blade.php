@@ -28,13 +28,13 @@
       use Harimayco\Menu\Models\MenuItems;
       $publicMenu = Menu::getByName('Public');
       $userLoggedRole=Auth::user()->roleId;
-      \Log::info( $userLoggedRole);
+      // \Log::info( $userLoggedRole);
      // Usando eager loading
       $publicMenu = Menus::where('name','Public')->with(['items' => function ($query) use($userLoggedRole){
                 $query->where('role_id','=', $userLoggedRole);
 
             }])->first();
-            \Log::info( $publicMenu);
+            // \Log::info( $publicMenu);
     @endphp
     <ul class="list-unstyled ps-0">
 

@@ -38,6 +38,8 @@
         src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.5.1,npm/fullcalendar@5.5.1/locales-all.min.js,npm/fullcalendar@5.5.1/locales-all.min.js,npm/fullcalendar@5.5.1/main.min.js">
     </script>
 
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js@alpha"></script>
 
     <style>
         svg {
@@ -62,7 +64,6 @@
 
 <body style="overflow: scroll">
     <div id="app" class="container">
-        @if (!Route::has('login'))
 
             <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
                 <div class="container">

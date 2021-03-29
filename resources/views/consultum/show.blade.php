@@ -11,21 +11,21 @@
                 <div class="card">
                     <div class="card-header">
                         <div class="float-left">
-                            <span class="card-title">Show Consultum</span>
+                            <span class="card-title"> Mostrar Consulta </span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('consulta.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('consulta.index') }}"> Atras</a>
                         </div>
                     </div>
 
                     <div class="card-body">
                         
                         <div class="form-group">
-                            <strong>Fechaemision:</strong>
+                            <strong>Fecha De Emision:</strong>
                             {{ $consultum->fechaEmision }}
                         </div>
                         <div class="form-group">
-                            <strong>Citaid:</strong>
+                            <strong>Cita Asignada:</strong>
                             {{ $consultum->Citaid }}
                         </div>
 

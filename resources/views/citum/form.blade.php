@@ -1,11 +1,37 @@
+@php
+        
+use Illuminate\Support\Facades\Auth;
+use \App\Http\Controllers\CitumController;
+$citaCont=new CitumController()
+ @endphp
+ <script src="https://code.jquery.com/jquery-3.6.0.js" integrity="sha256-H+K7U5CnXl1h5ywQfKtSj8PCmoN9aaq30gDh27Xc0jk=" crossorigin="anonymous"></script>
 <script>
 
     document.addEventListener('DOMContentLoaded', function() {
-       
+        // Evento de prueba
+     var events=[  ]
+  var citas=<?php echo json_encode( $citaCont->getAll(Auth::user()->id), JSON_HEX_TAG); ?> 
+  citas=JSON.parse(citas)
+  console.log(citas);
+  for (const cita of citas) {
+    var fechaCitaActual=cita.fecha;
+    var tomorrow = new Date(fechaCitaActual);
+    tomorrow.setDate((tomorrow.getDate()) + 1);
+     console.log(fechaCitaActual,tomorrow.toISOString());
+    events.push({ // this object will be "parsed" into an Event Object
+      title: 'Cita', // a property!
+      startRecur:  fechaCitaActual, // a property!
+      endRecur: tomorrow.toISOString().split('T')[0], // a property! ** see important note below about 'end' **
+      startTime: cita.horaInicio,
+      endTime: cita.horaFin
+    })
+  }
+  console.log(events);
         let draggableEl = document.getElementById('external-events');
         var  checkbox = document.getElementById('drop-remove');  
       var calendarEl = document.getElementById('calendar');
       var calendar = new FullCalendar.Calendar(calendarEl, {
+        events:events,
         initialView: 'timeGridWeek',
         headerToolbar: { center: 'dayGridMonth,timeGridWeek' }, // buttons for switching between views
 
@@ -14,7 +40,7 @@
             titleFormat: { year: 'numeric', month: '2-digit', day: '2-digit' }
             // other view-specific options here
         }},
-         editable: true,
+        //  editable: true,
       droppable: true, // this allows things to be dropped onto the calendar
       drop: function(arg) {
         // is the "remove after drop" checkbox checked?
@@ -111,13 +137,14 @@
           {!! $errors->first('horaFin', '<div class="invalid-feedback">:message</p>') !!}
       </div>
         <div class="form-group">
-            {{ Form::label('Pacienteid') }}
-            {{ Form::select('Pacienteid' ,[], ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Pacienteid']) }}
+            {{ Form::label('Paciente') }}
+            {{ Form::select('Pacienteid' ,Paciente::all()->pluck('nombre','id'),Paciente::all()->pluck('id'), ['class' => 'form-control' . ($errors->has('Pacienteid') ? ' is-invalid' : ''), 'placeholder' => 'Seleccione paciente']) }}
             {!! $errors->first('Pacienteid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
+
         <div class="form-group">
-            {{ Form::label('Agendaid') }}
-            {{ Form::select('Agendaid', [], ['class' => 'form-control' . ($errors->has('Agendaid') ? ' is-invalid' : ''), 'placeholder' => 'Agendaid']) }}
+            {{ Form::label('Agenda') }}
+            {{ Form::select('Agendaid',Agenda::all()->pluck('nombre','id'),Agenda::all()->pluck('id'), ['class' => 'form-control' . ($errors->has('Agendaid') ? ' is-invalid' : ''), 'placeholder' => 'Selecciona agenda']) }}
             {!! $errors->first('Agendaid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
 

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\ConsultaTratamiento;
 use App\Models\Consultum;
 use Illuminate\Http\Request;
 
@@ -16,9 +17,20 @@ class ConsultumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $consulta = Consultum::paginate();
+
+        if($request->has('search')){
+
+            $consulta = Consultum::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $consulta = Consultum::paginate(6);
+
+        }
 
         return view('consultum.index', compact('consulta'))
             ->with('i', (request()->input('page', 1) - 1) * $consulta->perPage());
@@ -34,7 +46,13 @@ class ConsultumController extends Controller
         $consultum = new Consultum();
         return view('consultum.create', compact('consultum'));
     }
-
+    /**
+     * id  de la consulta
+     */
+    public function createFromConsulta($consultaSeleccionadaId)
+    {
+        return view('consultum.createFromConsulta', compact('consultaSeleccionadaId'));
+    }
     /**
      * Store a newly created resource in storage.
      *
@@ -46,6 +64,11 @@ class ConsultumController extends Controller
         request()->validate(Consultum::$rules);
 
         $consultum = Consultum::create($request->all());
+        \Log::info($consultum->id);
+        foreach ($request->tratamientos as $tratamiento) {
+            # code...
+            ConsultaTratamiento::create(['Tratamientoid'=>$tratamiento,'Consultaid'=>($consultum->id)]);
+        }
 
         return redirect()->route('consulta.index')
             ->with('success', 'Consultum created successfully.');
@@ -102,7 +125,10 @@ class ConsultumController extends Controller
     public function destroy($id)
     {
         $consultum = Consultum::find($id)->delete();
-
+        $intermedium=ConsultaTratamiento::where('Consultaid',$id)->get();
+        foreach ($intermedium as $unaConsultaTratamiento ) {
+           $unaConsultaTratamiento->delete();
+        }
         return redirect()->route('consulta.index')
             ->with('success', 'Consultum deleted successfully');
     }
