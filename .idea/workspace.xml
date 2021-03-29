@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="2fd781b8-d60c-4203-ab3b-8d89484af820" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/resources/views/odontologo/form.blade.php" beforeDir="false" afterPath="$PROJECT_DIR$/resources/views/odontologo/form.blade.php" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -196,7 +195,7 @@
       <workItem from="1616827193506" duration="13000" />
       <workItem from="1616880660128" duration="1589000" />
       <workItem from="1616886996294" duration="15405000" />
-      <workItem from="1616959014994" duration="24096000" />
+      <workItem from="1616959014994" duration="25670000" />
     </task>
     <servers />
   </component>
