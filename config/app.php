@@ -227,13 +227,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
-<<<<<<< HEAD
-        
         'Excel' => Maatwebsite\Excel\Facades\Excel::class,
-=======
         'Scout' => Laravel\Scout\ScoutServiceProvider::class
 
->>>>>>> 520fd3a54a9d1e7c205876ea340fce50b42ee093
     ],
 
 ];

@@ -127,7 +127,7 @@
                     </div>
                 </div>
             </nav>
-        @endif
+        {{-- @endif --}}
         <div class="row ">
             <div class="col-3 bg-white "> @include('sidebar.sidebar')</div>
             <main class=" col-9">
