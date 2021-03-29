@@ -31,10 +31,6 @@ class AgendaExport implements FromCollection, ShouldAutoSize, WithHeadings, With
         return [
             'A' => 5,
             'B' => 15,
-            'C' => 20,
-            'D' => 10,
-            'E' => 15,
-            'F' => 7,
             'G' => 25,
             'H' => 25,
             'I' => 25,
