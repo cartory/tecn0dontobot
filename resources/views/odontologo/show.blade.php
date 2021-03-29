@@ -14,7 +14,7 @@
                             <span class="card-title">Show Odontologo</span>
                         </div>
                         <div class="float-right">
-                            <a class="btn btn-primary" href="{{ route('odontologos.index') }}"> Back</a>
+                            <a class="btn btn-primary" href="{{ route('odontologos.index') }}"> Volver</a>
                         </div>
                     </div>
 
