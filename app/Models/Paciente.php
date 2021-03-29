@@ -59,9 +59,5 @@ class Paciente extends Model
     {
         return $this->hasMany('App\Models\Citum', 'Pacienteid', 'id');
     }
-<<<<<<< HEAD
-=======
 
-
->>>>>>> 520fd3a54a9d1e7c205876ea340fce50b42ee093
 }

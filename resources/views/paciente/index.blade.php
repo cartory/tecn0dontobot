@@ -15,7 +15,7 @@
                                 {{ __('Paciente') }}
                             </span>
 
-<<<<<<< HEAD
+
                             <div>
                                 <div class="float-right" style="margin-left: 5px">
                                     <a href="{{ route('pacientes.create') }}" class="btn btn-primary btn-sm float-right"
@@ -31,13 +31,8 @@
                                         📊 Excel
                                     </a>
                                 </div>
-=======
-                             <div class="float-right">
-                                <a href="{{ route('pacientes.create') }}" class="btn btn-primary btn-sm float-right"  data-placement="left">
-                                  {{ __('Crear Nueva') }}
-                                </a>
->>>>>>> 520fd3a54a9d1e7c205876ea340fce50b42ee093
-                            </div>
+
+
                         </div>
                     </div>
                     @if ($message = Session::get('success'))

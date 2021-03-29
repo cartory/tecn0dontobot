@@ -48,7 +48,7 @@ class AgendaController extends Controller
         $loggedUserId = Auth::user()->id;
         $agenda->Odontologoid=Odontologo::where('Usuarioid', $loggedUserId)->firstOrFail()->id;
 
-        return view('agendas.create', compact('agenda'));
+        return view('agenda.create', compact('agenda'));
     }
 
     /**
