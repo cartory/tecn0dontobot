@@ -11,6 +11,7 @@ use App\Http\Controllers\ConsultumController;
 use App\Http\Controllers\OdontologoController;
 use App\Http\Controllers\TratamientoController;
 use App\Http\Controllers\EspecialidadController;
+use App\Http\Controllers\ReporteController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,7 @@ Route::group(['middleware' => ['auth']], function() {
     Route::prefix('admin')->group(function() {
         Route::get('recet/createFromConsulta/{consultaSeleccionadaId}', [RecetumController::class, 'createFromConsulta'])->name('recetacreateFromConsulta');
         Route::get('recet/verFromConsulta/{consultaSeleccionadaId}', [RecetumController::class, 'verFromConsulta'])->name('receta.showDeConsulta');
+        Route::get('reporte/GenerosPorMes', [ReporteController::class, 'GenerosPorMes'])->name('rep.GenerosPorMes');
 
         Route::resource('citas', CitumController::class);
         Route::resource('receta', RecetumController::class);
