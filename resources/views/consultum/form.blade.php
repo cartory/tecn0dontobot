@@ -1,8 +1,8 @@
 <div class="box box-info padding-1">
     <div class="box-body">
         @php
-            use App\Models\Citum; 
-            use App\Models\Tratamiento; 
+            use App\Models\Citum;
+            use App\Models\Tratamiento;
             $tratamientos=Tratamiento::all();
         @endphp
         <div class="form-group">
@@ -17,7 +17,7 @@
         </div>
         <div class="form-group" style="padding-left: 5%">
             {{ Form::label('Tratamientos Realizados') }}
-           
+
             @foreach ($tratamientos as $tratamiento)
             <div class="form-check">
                 <input class="form-check-input" type="checkbox" name=tratamientos[] value="{{$tratamiento->id}}" id="flexCheckDefault">

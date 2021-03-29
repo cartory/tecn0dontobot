@@ -1,6 +1,6 @@
 <div class="box box-info padding-1">
     <div class="box-body">
-        
+
         <div class="form-group">
             {{ Form::label('ci') }}
             {{ Form::number('ci', $odontologo->ci, ['class' => 'form-control' . ($errors->has('ci') ? ' is-invalid' : ''), 'placeholder' => 'Ci']) }}
@@ -27,7 +27,7 @@
             {!! $errors->first('genero', '<div class="invalid-feedback">:message</p>') !!}
         </div>
         @php
-             use App\Models\User; 
+             use App\Models\User;
         @endphp
         <div class="form-group">
             {{ Form::label('Email de usuario') }}

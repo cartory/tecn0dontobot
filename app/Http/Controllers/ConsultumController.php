@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\ConsultaTratamiento;
 use App\Models\Consultum;
 use App\Models\Tratamiento;
 use Illuminate\Http\Request;
+use App\Models\ConsultaTratamiento;
+
+use App\Exports\ConsultumExport;
+use Maatwebsite\Excel\Facades\Excel;
 
 /**
  * Class ConsultumController
@@ -13,14 +16,28 @@ use Illuminate\Http\Request;
  */
 class ConsultumController extends Controller
 {
+    public function export() {
+        return Excel::download(new ConsultumExport(), 'consultas.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $consulta = Consultum::paginate();
+
+        if($request->has('search')){
+
+            $consulta = Consultum::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $consulta = Consultum::paginate(6);
+
+        }
 
         return view('consultum.index', compact('consulta'))
             ->with('i', (request()->input('page', 1) - 1) * $consulta->perPage());
@@ -36,7 +53,7 @@ class ConsultumController extends Controller
         $consultum = new Consultum();
         return view('consultum.create', compact('consultum'));
     }
-    
+
     /**
      * Store a newly created resource in storage.
      *
@@ -46,14 +63,14 @@ class ConsultumController extends Controller
     public function store(Request $request)
     {
         request()->validate(Consultum::$rules);
-        
+
         $consultum = Consultum::create($request->all());
         // \Log::info($consultum->id);
         foreach ($request->tratamientos as $tratamiento) {
             # code...
             ConsultaTratamiento::create(['Tratamientoid'=>$tratamiento,'Consultaid'=>($consultum->id)]);
         }
-        
+
         return redirect()->route('consulta.index')
             ->with('success', 'Consultum created successfully.');
     }
@@ -81,6 +98,10 @@ class ConsultumController extends Controller
     public function edit($id)
     {
         $consultum = Consultum::find($id);
+
+
+
+        $consultum->fechaEmision = explode(" ",$consultum->fechaEmision)[0];
 
         return view('consultum.edit', compact('consultum'));
     }

@@ -5,20 +5,37 @@ namespace App\Http\Controllers;
 use App\Models\Odontologo;
 use Illuminate\Http\Request;
 
+use App\Exports\OdontologoExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 /**
  * Class OdontologoController
  * @package App\Http\Controllers
  */
 class OdontologoController extends Controller
 {
+    public function export() {
+        return Excel::download(new OdontologoExport(), 'odontologos.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $odontologos = Odontologo::paginate();
+
+        if($request->has('search')){
+
+            $odontologos = Odontologo::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $odontologos = Odontologo::paginate(6);
+
+        }
 
         return view('odontologo.index', compact('odontologos'))
             ->with('i', (request()->input('page', 1) - 1) * $odontologos->perPage());

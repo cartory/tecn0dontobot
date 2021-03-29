@@ -7,20 +7,36 @@ use App\Models\Odontologo;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
+use App\Exports\AgendaExport;
+use Maatwebsite\Excel\Facades\Excel;
 /**
  * Class AgendaController
  * @package App\Http\Controllers
  */
 class AgendaController extends Controller
 {
+    public function export() {
+        return Excel::download(new AgendaExport(), 'agenda.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $agendas = Agenda::paginate();
+
+        if($request->has('search')){
+
+            $agendas = Agenda::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $agendas = Agenda::paginate(6);
+
+        }
 
         return view('agenda.index', compact('agendas'))
             ->with('i', (request()->input('page', 1) - 1) * $agendas->perPage());
@@ -36,6 +52,7 @@ class AgendaController extends Controller
         $agenda = new Agenda();
         $loggedUserId = Auth::user()->id;
         $agenda->Odontologoid=Odontologo::where('Usuarioid', $loggedUserId)->firstOrFail()->id;
+
         return view('agenda.create', compact('agenda'));
     }
 

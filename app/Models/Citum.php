@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 /**
  * Class Citum
  *
@@ -25,7 +26,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Citum extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Searchable;
 
     static $rules = [
 		'horaInicio' => 'required',
@@ -44,7 +45,9 @@ class Citum extends Model
      */
     protected $fillable = ['horaInicio','horaFin','fecha','Pacienteid','Agendaid'];
 
-
+    public static function columns(): array {
+        return Schema::getColumnListing('Cita');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -52,7 +55,7 @@ class Citum extends Model
     {
         return $this->hasOne('App\Models\Agenda', 'id', 'Agendaid');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -60,7 +63,7 @@ class Citum extends Model
     {
         return $this->hasMany('App\Models\Consultum', 'Citaid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -68,6 +71,6 @@ class Citum extends Model
     {
         return $this->hasOne('App\Models\Paciente', 'id', 'Pacienteid');
     }
-    
+
 
 }

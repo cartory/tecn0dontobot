@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 /**
  * Class Agenda
  *
@@ -19,15 +20,15 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Agenda extends Model
 {
-    use SoftDeletes;
-    
+    use SoftDeletes, Searchable;
+
     static $rules = [
 		'Odontologoid' => 'required',
     ];
 
     protected $perPage = 20;
     protected $table='Agenda';
-    
+
     /**
      * Attributes that should be mass-assignable.
      *
@@ -35,6 +36,9 @@ class Agenda extends Model
      */
     protected $fillable = ['nombre','Odontologoid'];
 
+    public static function columns(): array {
+        return Schema::getColumnListing('Agenda');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -43,7 +47,7 @@ class Agenda extends Model
     {
         return $this->hasMany('App\Models\Citum', 'Agendaid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -51,6 +55,6 @@ class Agenda extends Model
     {
         return $this->hasOne('App\Models\Odontologo', 'id', 'Odontologoid');
     }
-    
+
 
 }

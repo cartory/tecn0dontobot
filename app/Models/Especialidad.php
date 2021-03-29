@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
+use Laravel\Scout\Searchable;
 /**
  * Class Especialidad
  *
@@ -18,8 +19,13 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Especialidad extends Model
 {
-    use SoftDeletes;
-    
+    use SoftDeletes, Searchable;
+
+    public function searchableAs()
+    {
+        return 'especialidad';
+    }
+
     static $rules = [
     ];
 
@@ -34,6 +40,9 @@ class Especialidad extends Model
      */
     protected $fillable = ['nombre'];
 
+    public static function columns(): array {
+        return Schema::getColumnListing('Especialidad');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -42,7 +51,7 @@ class Especialidad extends Model
     {
         return $this->hasMany('App\Models\OdontologoEspecialidad', 'Especialidadid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -50,6 +59,8 @@ class Especialidad extends Model
     {
         return $this->hasMany('App\Models\Tratamiento', 'Especialidadid', 'id');
     }
-    
+
+
+
 
 }

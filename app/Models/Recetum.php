@@ -2,6 +2,8 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 /**
@@ -19,7 +21,7 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Recetum extends Model
 {
-    use SoftDeletes;
+    use SoftDeletes, Searchable;
 
     static $rules = [
 		'titulo' => 'required',
@@ -35,7 +37,9 @@ class Recetum extends Model
      */
     protected $fillable = ['titulo','descripcion','fecha','Consultaid'];
 
-
+    public static function columns(): array {
+      return Schema::getColumnListing('Receta');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -43,6 +47,6 @@ class Recetum extends Model
     {
         return $this->hasOne('App\Models\Consultum', 'id', 'Consultaid');
     }
-    
+
 
 }

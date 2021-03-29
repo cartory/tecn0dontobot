@@ -2,25 +2,31 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Agenda;
 use App\Models\Citum;
+use App\Models\Agenda;
 use App\Models\Odontologo;
 use Illuminate\Http\Request;
 
+use App\Exports\CitumExport;
+use Maatwebsite\Excel\Facades\Excel;
 /**
  * Class CitumController
  * @package App\Http\Controllers
  */
 class CitumController extends Controller
-{   
+{
+    public function export() {
+        return Excel::download(new CitumExport(), 'citas.xlsx');
+    }
+
     public function getAll($userId){
-        
-    
+
+
         $odontologoId=Odontologo::where('Usuarioid',$userId)->first()->id;
-        
+
         $agendaIds=Agenda::where('Odontologoid',$odontologoId)->pluck('id');
 
-       
+
         $citas=Citum::whereIn('Agendaid', $agendaIds)->get();
         //  \Log::info($citas->toJson());
         return $citas->toJson();
@@ -30,9 +36,20 @@ class CitumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $cita = Citum::paginate();
+
+        if($request->has('search')){
+
+            $cita = Citum::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $cita = Citum::paginate(6);
+
+        }
 
         return view('citum.index', compact('cita'))
             ->with('i', (request()->input('page', 1) - 1) * $cita->perPage());

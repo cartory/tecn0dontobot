@@ -5,20 +5,37 @@ namespace App\Http\Controllers;
 use App\Models\Paciente;
 use Illuminate\Http\Request;
 
+use App\Exports\PacienteExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 /**
  * Class PacienteController
  * @package App\Http\Controllers
  */
 class PacienteController extends Controller
 {
+    public function export() {
+        return Excel::download(new PacienteExport(), 'pacientes.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $pacientes = Paciente::paginate();
+
+        if($request->has('search')){
+
+            $pacientes = Paciente::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $pacientes = Paciente::paginate(6);
+
+        }
 
         return view('paciente.index', compact('pacientes'))
             ->with('i', (request()->input('page', 1) - 1) * $pacientes->perPage());

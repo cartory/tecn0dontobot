@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 /**
  * Class Odontologo
  *
@@ -24,7 +25,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Odontologo extends Model
 {
-    
+    use Searchable;
+
     static $rules = [
 		'ci' => 'required',
 		'nombre' => 'required',
@@ -43,6 +45,9 @@ class Odontologo extends Model
      */
     protected $fillable = ['ci','nombre','fNac','celular','genero','Usuarioid'];
 
+    public static function columns(): array {
+        return Schema::getColumnListing('Odontologo');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
@@ -51,7 +56,7 @@ class Odontologo extends Model
     {
         return $this->hasMany('App\Models\Agenda', 'Odontologoid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -59,7 +64,7 @@ class Odontologo extends Model
     {
         return $this->hasOne('App\Models\OdontologoEspecialidad', 'Odontologoid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -67,6 +72,6 @@ class Odontologo extends Model
     {
         return $this->hasOne('App\Models\Usuario', 'id', 'Usuarioid');
     }
-    
+
 
 }

@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-
 /**
  * Class Tratamiento
  *
@@ -19,8 +20,8 @@ use Illuminate\Database\Eloquent\SoftDeletes;
  */
 class Tratamiento extends Model
 {
-    use SoftDeletes;
-    
+    use SoftDeletes, Searchable;
+
     static $rules = [
 		'nombre' => 'required',
 		'Especialidadid' => 'required',
@@ -35,8 +36,10 @@ class Tratamiento extends Model
      * @var array
      */
     protected $fillable = ['nombre','Especialidadid'];
-
-
+    
+    public static function columns(): array {
+        return Schema::getColumnListing('Tratamiento');
+    }
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany
      */
@@ -44,7 +47,7 @@ class Tratamiento extends Model
     {
         return $this->hasMany('App\Models\ConsultaTratamiento', 'Tratamientoid', 'id');
     }
-    
+
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasOne
      */
@@ -52,6 +55,6 @@ class Tratamiento extends Model
     {
         return $this->hasOne('App\Models\Especialidad', 'id', 'Especialidadid');
     }
-    
+
 
 }

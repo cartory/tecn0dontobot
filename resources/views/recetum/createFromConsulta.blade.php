@@ -21,7 +21,7 @@
 
                             <div class="box box-info padding-1">
                                 <div class="box-body">
-                                    
+
                                     <div class="form-group">
                                         {{ Form::label('titulo') }}
                                         {{ Form::text('titulo', $recetum->titulo, ['class' => 'form-control' . ($errors->has('titulo') ? ' is-invalid' : ''), 'placeholder' => 'Titulo']) }}
@@ -44,7 +44,7 @@
                                         {{ Form::text('Consultaid', $consultaSeleccionadaId, ['class' => 'form-control' . ($errors->has('Consultaid') ? ' is-invalid' : ''), 'placeholder' => 'Consultaid']) }}
                                         {!! $errors->first('Consultaid', '<div class="invalid-feedback">:message</p>') !!}
                                     </div>
-                            
+
                                 </div>
                                 <div class="box-footer mt20">
                                     <button type="submit" class="btn btn-primary">Submit</button>
