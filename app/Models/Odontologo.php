@@ -2,9 +2,10 @@
 
 namespace App\Models;
 
+use Laravel\Scout\Searchable;
+use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
-use Laravel\Scout\Searchable;
 /**
  * Class Odontologo
  *
@@ -44,6 +45,9 @@ class Odontologo extends Model
      */
     protected $fillable = ['ci','nombre','fNac','celular','genero','Usuarioid'];
 
+    public static function columns(): array {
+        return Schema::getColumnListing('Odontologo');
+    }
 
     /**
      * @return \Illuminate\Database\Eloquent\Relations\HasMany

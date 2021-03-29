@@ -5,12 +5,18 @@ namespace App\Http\Controllers;
 use App\Models\Odontologo;
 use Illuminate\Http\Request;
 
+use App\Exports\OdontologoExport;
+use Maatwebsite\Excel\Facades\Excel;
+
 /**
  * Class OdontologoController
  * @package App\Http\Controllers
  */
 class OdontologoController extends Controller
 {
+    public function export() {
+        return Excel::download(new OdontologoExport(), 'odontologos.xlsx');
+    }
     /**
      * Display a listing of the resource.
      *

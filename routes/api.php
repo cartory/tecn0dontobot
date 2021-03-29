@@ -5,6 +5,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 
 use App\Http\Controllers\PacienteController;
+use App\Http\Controllers\OdontologoController;
 use App\Http\Controllers\EspecialidadController;
 /*
 |--------------------------------------------------------------------------
@@ -32,5 +33,6 @@ Route::post('theme', function(Request $request) {
 
 Route::prefix('excel')->group(function() {
     Route::get('pacientes', [PacienteController::class, 'export']);
+    Route::get('odontologos', [OdontologoController::class, 'export']);
     Route::get('especialidades', [EspecialidadController::class, 'export']);
 });
