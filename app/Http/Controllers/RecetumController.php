@@ -16,9 +16,20 @@ class RecetumController extends Controller
      *
      * @return \Illuminate\Http\Response
      */
-    public function index()
+    public function index(Request $request)
     {
-        $receta = Recetum::paginate();
+
+        if($request->has('search')){
+
+            $receta = Recetum::search($request->search)
+
+                ->paginate(6);
+
+        }else{
+
+            $receta = Recetum::paginate(6);
+
+        }
 
         return view('recetum.index', compact('receta'))
             ->with('i', (request()->input('page', 1) - 1) * $receta->perPage());

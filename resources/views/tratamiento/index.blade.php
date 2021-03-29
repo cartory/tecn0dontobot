@@ -5,6 +5,7 @@
 @endsection
 
 @section('content')
+
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
@@ -35,7 +36,7 @@
                                 <thead class="thead">
                                     <tr>
                                         <th>No</th>
-                                        
+
 										<th>Nombre</th>
 										<th>Especialidadid</th>
 
@@ -46,7 +47,7 @@
                                     @foreach ($tratamientos as $tratamiento)
                                         <tr>
                                             <td>{{ ++$i }}</td>
-                                            
+
 											<td>{{ $tratamiento->nombre }}</td>
 											<td>{{ $tratamiento->Especialidadid }}</td>
 

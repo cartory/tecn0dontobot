@@ -5,7 +5,7 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\SoftDeletes;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
-
+use Laravel\Scout\Searchable;
 /**
  * Class Paciente
  *
@@ -27,6 +27,7 @@ class Paciente extends Model
 {
     use HasFactory;
     use SoftDeletes;
+    use Searchable;
 
     static $rules = [
 		'ci' => 'required',
@@ -38,7 +39,7 @@ class Paciente extends Model
 
     protected $perPage = 6;
     protected $table = 'Paciente';
-    
+
     /**
      * Attributes that should be mass-assignable.
      *
@@ -54,6 +55,6 @@ class Paciente extends Model
     {
         return $this->hasMany('App\Models\Citum', 'Pacienteid', 'id');
     }
-    
+
 
 }

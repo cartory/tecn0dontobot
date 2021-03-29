@@ -33,6 +33,8 @@
     {{-- JS --}}
     <script src="https://cdn.jsdelivr.net/combine/npm/fullcalendar@5.5.1,npm/fullcalendar@5.5.1/locales-all.min.js,npm/fullcalendar@5.5.1/locales-all.min.js,npm/fullcalendar@5.5.1/main.min.js"></script>
 
+    <script src="https://cdn.jsdelivr.net/npm/algoliasearch@4.5.1/dist/algoliasearch-lite.umd.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@algolia/autocomplete-js@alpha"></script>
 
     <style>
         svg {
@@ -55,9 +57,39 @@
 
 </head>
 <body  style="overflow: scroll" onload="@{{loadTema()}}">
-    <div id="app" class="container">
-        @if (!Route::has('login'))
 
+    <div id="app" class="container">
+
+        <form method="GET" >
+
+
+            <div class="row">
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+
+                        <input type="text" name="search" class="form-control" placeholder="Ingrese el termino a buscar" value="{{ old('search') }}">
+
+                    </div>
+
+                </div>
+
+                <div class="col-md-6">
+
+                    <div class="form-group">
+
+                        <button class="btn btn-success">Buscar</button>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </form>
+
+        @if (!Route::has('login'))
 
         <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
             <div class="container">
