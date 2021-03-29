@@ -15,7 +15,7 @@
             {{ Form::select('Citaid',Citum::all()->pluck('fecha','id'), $consultum->Citaid, ['class' => 'form-control' . ($errors->has('Citaid') ? ' is-invalid' : ''), 'placeholder' => 'Citaid']) }}
             {!! $errors->first('Citaid', '<div class="invalid-feedback">:message</p>') !!}
         </div>
-        <div class="form-group">
+        <div class="form-group" style="padding-left: 5%">
             {{ Form::label('Tratamientos Realizados') }}
            
             @foreach ($tratamientos as $tratamiento)
